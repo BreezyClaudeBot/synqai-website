@@ -387,7 +387,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 56px;
-      align-items: start;
+      align-items: stretch;
     }
     .pricing-card {
       border: 1px solid var(--border);
@@ -395,6 +395,10 @@
       padding: 36px 28px;
       position: relative;
       transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
     }
     .pricing-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
     .pricing-card.featured {
@@ -432,7 +436,7 @@
     .pricing-tagline {
       font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 28px;
+      margin-bottom: 14px;
       line-height: 1.5;
     }
     .pricing-price {
@@ -440,7 +444,8 @@
       font-weight: 800;
       letter-spacing: -1.5px;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 0;
+      line-height: 1.1;
     }
     .pricing-price span {
       font-size: 1rem;
@@ -451,14 +456,15 @@
     .pricing-divider {
       height: 1px;
       background: var(--border);
-      margin: 24px 0;
+      margin: 14px 0 16px;
     }
     .pricing-features {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 0;
+      flex: 1 1 auto;
     }
     .pricing-features li {
       font-size: 0.88rem;
@@ -484,6 +490,7 @@
       font-size: 0.92rem;
       text-decoration: none;
       transition: all 0.2s;
+      margin-top: 24px;
     }
     .pricing-cta-outline {
       border: 1.5px solid var(--border);
