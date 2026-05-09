@@ -39,6 +39,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://getsynq.ca'
   </head>
   <body class="bg-white font-sans text-slate-900 antialiased">
     <slot />
-    <!-- TODO: Add analytics or chatbot script here -->
+
+    <script
+      src="https://synqai.up.railway.app/widget.js"
+      data-api-key="wk_test_synqai_2026"
+      data-api-url="https://synqai.up.railway.app"
+      data-accent-color="#0D9488"
+      data-position="bottom-right"
+      data-greeting="Hi! Ask us how Synq will make you never miss a customer call again."
+      data-title="SynqAI"
+      data-collect-name="true"
+      data-collect-email="true"
+      async
+      defer
+      is:inline
+    ></script>
   </body>
 </html>
