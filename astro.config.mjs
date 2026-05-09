@@ -3,5 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://getsynq.ca',
+  site: 'https://breezyclaudebot.github.io',
+  base: '/synqai-website/',
 });
