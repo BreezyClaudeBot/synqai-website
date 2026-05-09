@@ -1,27 +1,41 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// ─── Pricing tiers — ordered ascending ($30 → $150 → $350) ───────────────────
+// ─── Pricing tiers — USD default with CAD toggle ──────────────────────────────
 const plans = [
   {
     name:        'SynqLite',
     subtitle:    'Simple Website Chatbot',
     description: 'A lightweight website chatbot for straightforward Q&A.',
-    price:       '$30',
+    price:       { usd: '$22', cad: 'C$30' },
     popular:     false,
     features: [
       'Answers basic questions from your website content',
       'Website chat only (no SMS or voice channels)',
       'Up to 150 answered questions per month',
-      'One-time setup fee: $50',
+      'One-time setup fee applies',
       'Email support for basic updates',
+    ],
+  },
+  {
+    name:        'Synq Front Desk',
+    subtitle:    'Full AI Front Desk',
+    description: 'Run a 24/7 front desk without hiring a single extra person.',
+    price:       { usd: '$255', cad: 'C$350' },
+    popular:     true,
+    features: [
+      'Everything in SynqEngage',
+      'AI voice assistant that picks up after hours — a real conversation instead of a voicemail',
+      'All three channels working together — website chat, missed call SMS, and live voice',
+      'Includes a second dedicated US or Canadian number for voice call routing',
+      'Monthly performance review — we analyze conversations and fine-tune your AI for your business',
     ],
   },
   {
     name:        'SynqEngage',
     subtitle:    'Website + Missed Call Recovery',
     description: 'Turn website visitors and missed calls into paying customers automatically.',
-    price:       '$150',
+    price:       { usd: '$110', cad: 'C$150' },
     popular:     false,
     features: [
       'AI assistant trained on your business to answer questions instantly',
@@ -31,20 +45,6 @@ const plans = [
       'Collects caller details and turns missed calls into qualified leads',
       'Real conversational AI over SMS — customers get answers, you get leads',
       'Includes a dedicated Canadian or US phone number with unlimited texts',
-    ],
-  },
-  {
-    name:        'Synq Front Desk',
-    subtitle:    'Full AI Front Desk',
-    description: 'Run a 24/7 front desk without hiring a single extra person.',
-    price:       '$350',
-    popular:     true,
-    features: [
-      'Everything in SynqEngage',
-      'AI voice assistant that picks up after hours — a real conversation instead of a voicemail',
-      'All three channels working together — website chat, missed call SMS, and live voice',
-      'Includes a second dedicated US or Canadian number for voice call routing',
-      'Monthly performance review — we analyze conversations and fine-tune your AI for your business',
     ],
   },
 ];
@@ -471,6 +471,24 @@ const industries = [
           <p class="mt-4 text-slate-500 max-w-md">
             Every plan includes onboarding support and setup tailored to your business.
           </p>
+          <div data-currency-toggle class="mt-6 inline-flex items-center rounded-lg border border-slate-200 p-1 bg-white">
+            <button
+              type="button"
+              data-currency-option="usd"
+              aria-pressed="true"
+              class="px-3 py-1.5 rounded-md text-sm font-semibold bg-slate-900 text-white"
+            >
+              🇺🇸 USD
+            </button>
+            <button
+              type="button"
+              data-currency-option="cad"
+              aria-pressed="false"
+              class="px-3 py-1.5 rounded-md text-sm font-semibold text-slate-600"
+            >
+              🇨🇦 CAD
+            </button>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -496,7 +514,7 @@ const industries = [
                 <h3 class="font-heading font-bold text-slate-900 text-lg mb-3">{plan.name}</h3>
                 <p class="text-slate-500 text-sm mb-5 min-h-[4.5rem]">{plan.description}</p>
                 <div class="flex items-baseline gap-1">
-                  <span class="font-heading font-extrabold text-slate-900 text-4xl">{plan.price}</span>
+                  <span class="font-heading font-extrabold text-slate-900 text-4xl" data-price data-usd={plan.price.usd} data-cad={plan.price.cad}>{plan.price.usd}</span>
                   <span class="text-slate-500 text-sm">/mo</span>
                 </div>
               </div>
@@ -530,12 +548,53 @@ const industries = [
 
         <!-- Setup fee note -->
         <p class="mt-10 text-center text-slate-500 text-sm max-w-xl mx-auto">
-          <strong class="text-slate-900">One-time setup fee: $50 for Q&A Lite, $200–$500 for advanced tiers.</strong>{' '}
+          <strong class="text-slate-900" data-setup-note data-usd="One-time setup fee: $35 for Q&A Lite, $150-$365 for advanced tiers." data-cad="One-time setup fee: C$50 for Q&A Lite, C$200-C$500 for advanced tiers.">One-time setup fee: $35 for Q&A Lite, $150-$365 for advanced tiers.</strong>{' '}
           We handle full configuration, AI training on your business, and optimization — so you're ready to capture customers from day one.
         </p>
 
       </div>
     </section>
+
+    <script is:inline>
+      (() => {
+        const toggleRoot = document.querySelector('[data-currency-toggle]');
+        if (!toggleRoot) return;
+
+        const buttons = Array.from(toggleRoot.querySelectorAll('[data-currency-option]'));
+        const priceEls = Array.from(document.querySelectorAll('[data-price]'));
+        const setupNote = document.querySelector('[data-setup-note]');
+
+        const setCurrency = (currency) => {
+          buttons.forEach((button) => {
+            const isActive = button.getAttribute('data-currency-option') === currency;
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            button.classList.toggle('bg-slate-900', isActive);
+            button.classList.toggle('text-white', isActive);
+            button.classList.toggle('text-slate-600', !isActive);
+          });
+
+          priceEls.forEach((priceEl) => {
+            const nextValue = priceEl.getAttribute(`data-${currency}`);
+            if (nextValue) priceEl.textContent = nextValue;
+          });
+
+          if (setupNote) {
+            const nextNote = setupNote.getAttribute(`data-${currency}`);
+            if (nextNote) setupNote.textContent = nextNote;
+          }
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const currency = button.getAttribute('data-currency-option');
+            if (!currency) return;
+            setCurrency(currency);
+          });
+        });
+
+        setCurrency('usd');
+      })();
+    </script>
 
 
     <!-- ════════════════════════════════════════
