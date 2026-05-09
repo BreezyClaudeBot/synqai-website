@@ -1,0 +1,207 @@
+/* empty css                                 */
+import { c as createAstro, a as createComponent, b as addAttribute, r as renderHead, d as renderSlot, e as renderTemplate, f as renderComponent, m as maybeRenderHead, u as unescapeHTML } from '../chunks/astro/server_BIWPIaLn.mjs';
+import 'kleur/colors';
+import 'clsx';
+export { renderers } from '../renderers.mjs';
+
+const $$Astro = createAstro("https://getsynq.ca");
+const $$Base = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Base;
+  const {
+    title = "Synq \u2014 Never Miss Another Customer Inquiry",
+    description = "Synq automatically handles calls, texts, and website messages so you capture more bookings and opportunities \u2014 without adding staff."
+  } = Astro2.props;
+  const canonical = new URL(Astro2.url.pathname, Astro2.site ?? "https://getsynq.ca");
+  return renderTemplate`<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${title}</title><meta name="description"${addAttribute(description, "content")}><link rel="canonical"${addAttribute(canonical.href, "href")}><meta property="og:title"${addAttribute(title, "content")}><meta property="og:description"${addAttribute(description, "content")}><meta property="og:type" content="website"><meta property="og:url"${addAttribute(canonical.href, "content")}><!-- Fonts: Plus Jakarta Sans (headings) + Inter (body) --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><!-- Favicon placeholder — TODO: replace with real logo --><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230D9488'/><text x='16' y='22' font-family='sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>">${renderHead()}</head> <body class="bg-white font-sans text-slate-900 antialiased"> ${renderSlot($$result, $$slots["default"])} <!-- TODO: Add analytics or chatbot script here --> </body></html>`;
+}, "/sessions/lucid-compassionate-ptolemy/mnt/outputs/synq/src/layouts/Base.astro", void 0);
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const plans = [
+    {
+      name: "Synq Engage",
+      subtitle: "Website Layer",
+      description: "Turn website visitors into paying customers automatically.",
+      price: "$75",
+      popular: false,
+      features: [
+        "AI assistant trained on your business to answer questions instantly",
+        "Captures name, email, phone and preferred dates from potential leads",
+        "Appointment requests sent straight to your inbox \u2014 ready to confirm",
+        "Full chat logs for each conversation for continued performance enhancement over time",
+        "We handle all the setup \u2014 you just start getting leads"
+      ]
+    },
+    {
+      name: "Synq Capture",
+      subtitle: "Missed Inquiry Recovery",
+      description: "Turn missed calls into revenue before they call someone else.",
+      price: "$175",
+      popular: false,
+      features: [
+        "Everything in Synq Engage",
+        "Missed calls automatically trigger an SMS to the caller within seconds",
+        "Collects their name, email, and phone \u2014 turns a missed call into a lead",
+        "Real conversational AI over SMS \u2014 customers get answers, you get leads",
+        "Includes a dedicated Canadian or US phone number with unlimited texts"
+      ]
+    },
+    {
+      name: "Synq Front Desk",
+      subtitle: "Full AI Front Desk",
+      description: "Run a 24/7 front desk without hiring a single extra person.",
+      price: "$350",
+      popular: true,
+      features: [
+        "Everything in Synq Capture",
+        "AI voice assistant that picks up after hours \u2014 a real conversation instead of a voicemail",
+        "All three channels working together \u2014 website chat, missed call SMS, and live voice",
+        "Includes a second dedicated US or Canadian number for voice call routing",
+        "Monthly performance review \u2014 we analyze conversations and fine-tune your AI for your business"
+      ]
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "Base", $$Base, {}, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-sm border-b border-slate-800"> <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-6"> <a href="#" class="font-heading font-bold text-white text-lg tracking-tight">
+Synq<span class="text-teal">AI</span> </a> <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation"> <a href="#how" class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a> <a href="#outcomes" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a> <a href="#pricing" class="text-sm text-slate-400 hover:text-white transition-colors">Pricing</a> </nav> <a href="#pricing" class="bg-teal hover:bg-teal-dark text-white text-sm font-medium px-4 py-2 rounded transition-colors">
+Get Started
+</a> </div> </header> <main> <!-- ════════════════════════════════════════
+         HERO — the one expressive moment
+         ════════════════════════════════════════ --> <section class="bg-slate-950 pt-40 pb-24 min-h-screen flex items-center" aria-label="Hero"> <div class="max-w-6xl mx-auto px-6 w-full"> <div class="max-w-3xl"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-6">AI-Powered Front Desk</p> <h1 class="font-heading text-display text-white font-extrabold mb-6">
+Never Miss Another<br> <em class="text-teal not-italic">Customer Inquiry</em> </h1> <p class="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+Synq automatically handles calls, texts, and website messages so you capture more bookings and opportunities — without adding staff.
+</p> <div class="flex flex-wrap gap-4 mb-20"> <a href="#how" class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
+See How It Works
+</a> <a href="#pricing" class="inline-block border border-slate-600 hover:border-slate-400 text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
+View Pricing
+</a> </div> <!-- Stats row --> <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800 border border-slate-800 rounded overflow-hidden"> ${[
+    { value: "24/7", label: "Response Coverage" },
+    { value: "<60s", label: "Response Time" },
+    { value: "3\xD7", label: "More Inquiries Captured" },
+    { value: "$0", label: "Extra Staff Required" }
+  ].map((s) => renderTemplate`<div class="bg-slate-900 px-6 py-5"> <p class="font-heading text-2xl font-bold text-white mb-1">${s.value}</p> <p class="text-slate-500 text-xs">${s.label}</p> </div>`)} </div> </div> </div> </section> <!-- ════════════════════════════════════════
+         HOW IT WORKS
+         ════════════════════════════════════════ --> <section id="how" class="py-24 bg-white" aria-labelledby="how-heading"> <div class="max-w-6xl mx-auto px-6"> <div class="mb-16"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">How It Works</p> <h2 id="how-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
+Three steps. Zero missed opportunities.
+</h2> <p class="mt-4 text-slate-500 max-w-md">
+Synq sits between your customers and your calendar — capturing every inquiry and sending it straight to you.
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative"> <!-- Connecting rule on desktop --> <div class="hidden md:block absolute top-8 left-[calc(16.666%+1.5rem)] right-[calc(16.666%+1.5rem)] h-px bg-slate-200" aria-hidden="true"></div> ${[
+    {
+      n: "1",
+      heading: "Customer reaches out",
+      body: "A customer calls, texts, or visits your website \u2014 at any hour, on any day.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`
+    },
+    {
+      n: "2",
+      heading: "Synq responds instantly",
+      body: "Your AI front desk greets them via chat, SMS, or voice and gathers what they need.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
+    },
+    {
+      n: "3",
+      heading: "You get the booking",
+      body: "The request or booking is captured and delivered to you \u2014 ready to confirm.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+    }
+  ].map((step) => renderTemplate`<div> <div class="relative mb-6"> <div class="w-16 h-16 rounded-full bg-teal-faint border border-teal-light flex items-center justify-center text-teal mb-1">${unescapeHTML(step.icon)}</div> <span class="absolute -top-1 -right-1 md:right-auto md:left-12 w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold font-heading flex items-center justify-center">${step.n}</span> </div> <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">${step.heading}</h3> <p class="text-slate-500 text-sm leading-relaxed">${step.body}</p> </div>`)} </div> </div> </section> <!-- ════════════════════════════════════════
+         WHAT SYNQ HANDLES (Channels)
+         ════════════════════════════════════════ --> <section class="py-24 bg-slate-50 border-t border-slate-100" aria-labelledby="channels-heading"> <div class="max-w-6xl mx-auto px-6"> <div class="mb-16"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">What Synq Handles</p> <h2 id="channels-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
+Every channel. Every inquiry. Covered.
+</h2> <p class="mt-4 text-slate-500 max-w-md">
+From missed calls to website visitors, Synq ensures no potential customer slips through the cracks.
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> ${[
+    {
+      heading: "Missed Call Recovery",
+      body: "If you miss a call, Synq immediately follows up via text \u2014 capturing customer intent and next steps before they call a competitor.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 4.07A10.7 10.7 0 0 0 4.81 4c-3.15 1.67-5 5.39-5 9 0 .84.27 1.6.72 2.19"/><path d="M10.88 21.83a9.9 9.9 0 0 0 3.12-.89"/><path d="M22 17.82A10.16 10.16 0 0 1 19 20.5"/><path d="M14 3.65A10.04 10.04 0 0 0 12 3c-2.67 0-5.1 1.04-6.9 2.74"/></svg>`
+    },
+    {
+      heading: "24/7 Response Coverage",
+      body: "Answer inquiries even when you're unavailable. After hours, on weekends, during busy periods \u2014 every opportunity gets handled.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
+    },
+    {
+      heading: "Website Conversion",
+      body: "Engage website visitors in real time with an AI assistant trained on your business. Turn traffic into actual customers, automatically.",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`
+    }
+  ].map((ch) => renderTemplate`<div class="bg-white border border-slate-200 rounded-lg p-7"> <div class="w-10 h-10 rounded-lg bg-teal-faint flex items-center justify-center text-teal mb-5">${unescapeHTML(ch.icon)}</div> <h3 class="font-heading font-bold text-slate-900 mb-3">${ch.heading}</h3> <p class="text-slate-500 text-sm leading-relaxed">${ch.body}</p> </div>`)} </div> </div> </section> <!-- ════════════════════════════════════════
+         BUILT FOR
+         ════════════════════════════════════════ --> <section class="py-24 bg-white border-t border-slate-100" aria-labelledby="built-for-heading"> <div class="max-w-6xl mx-auto px-6"> <div class="mb-16"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">Built For</p> <h2 id="built-for-heading" class="font-heading text-heading text-slate-900 font-bold max-w-xl">
+Any service business that relies on inbound inquiries.
+</h2> <p class="mt-4 text-slate-500 max-w-md">
+If customers call, text, or visit your website to book or ask questions, Synq was built for you.
+</p> </div> <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> ${[
+    { label: "Clinics", desc: "Capture appointment requests around the clock" },
+    { label: "Restaurants", desc: "Handle reservations and inquiries automatically" },
+    { label: "Auto Shops", desc: "Never miss a service call or estimate request" },
+    { label: "Home Services", desc: "Capture leads from every call and inquiry" },
+    { label: "Agencies", desc: "Qualify and route inbound leads instantly" }
+  ].map((b) => renderTemplate`<div class="flex gap-4 py-5 border-b border-slate-100"> <div class="mt-0.5 w-2 h-2 rounded-full bg-teal shrink-0 translate-y-1.5"></div> <div> <dt class="font-heading font-semibold text-slate-900 mb-0.5">${b.label}</dt> <dd class="text-slate-500 text-sm">${b.desc}</dd> </div> </div>`)} </dl> </div> </section> <!-- ════════════════════════════════════════
+         OUTCOMES (What You Gain)
+         ════════════════════════════════════════ --> <section id="outcomes" class="py-24 bg-slate-50 border-t border-slate-100" aria-labelledby="outcomes-heading"> <div class="max-w-6xl mx-auto px-6"> <div class="mb-16"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">What You Gain</p> <h2 id="outcomes-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
+Real outcomes. Measurable impact.
+</h2> <p class="mt-4 text-slate-500 max-w-md">
+Synq doesn't add complexity — it removes the gaps where revenue was already slipping away.
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0 divide-y divide-slate-200"> ${[
+    {
+      heading: "Fewer Missed Opportunities",
+      body: "Every call, message, and website visit gets a response \u2014 so you stop losing customers to voicemail and slow reply times."
+    },
+    {
+      heading: "Faster Response Times",
+      body: "Customers hear back in under a minute, any time of day. Speed of response is often the difference between a booking and a lost lead."
+    },
+    {
+      heading: "More Bookings Without Hiring",
+      body: "Scale your front desk capacity without adding headcount. Synq handles the volume your team can't."
+    },
+    {
+      heading: "Reduced Operational Overhead",
+      body: "Less time managing inbound chaos. Your team focuses on delivering great work \u2014 not fielding every inquiry manually."
+    }
+  ].map((o) => renderTemplate`<div class="py-7 flex gap-5"> <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> <div> <h3 class="font-heading font-bold text-slate-900 mb-1">${o.heading}</h3> <p class="text-slate-500 text-sm leading-relaxed">${o.body}</p> </div> </div>`)} </div> </div> </section> <!-- ════════════════════════════════════════
+         PRICING
+         ════════════════════════════════════════ --> <section id="pricing" class="py-24 bg-white border-t border-slate-100" aria-labelledby="pricing-heading"> <div class="max-w-6xl mx-auto px-6"> <div class="mb-16"> <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">Pricing</p> <h2 id="pricing-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
+Start where you need. Scale as you grow.
+</h2> <p class="mt-4 text-slate-500 max-w-md">
+Every plan includes onboarding support and setup tailored to your business.
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"> ${plans.map((plan) => renderTemplate`<div${addAttribute([
+    "rounded-lg border flex flex-col",
+    plan.popular ? "border-teal shadow-lg shadow-teal/10 relative" : "border-slate-200"
+  ], "class:list")}> ${plan.popular && renderTemplate`<div class="absolute -top-3.5 left-1/2 -translate-x-1/2"> <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
+Most Popular
+</span> </div>`} <div${addAttribute(["p-7 border-b", plan.popular ? "border-teal/20" : "border-slate-100"], "class:list")}> <p class="text-slate-500 text-xs font-semibold tracking-widest uppercase mb-1">${plan.subtitle}</p> <h3 class="font-heading font-bold text-slate-900 text-lg mb-3">${plan.name}</h3> <p class="text-slate-500 text-sm mb-5">${plan.description}</p> <div class="flex items-baseline gap-1"> <span class="font-heading font-extrabold text-slate-900 text-4xl">${plan.price}</span> <span class="text-slate-500 text-sm">/mo</span> </div> </div> <div class="p-7 flex flex-col flex-1"> <ul class="space-y-3 mb-8 flex-1"> ${plan.features.map((f) => renderTemplate`<li class="flex gap-3 text-sm text-slate-600"> <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> ${f} </li>`)} </ul> <!-- TODO: Replace href="#" with real signup/onboarding URL --> <a href="#"${addAttribute([
+    "block text-center font-semibold text-sm py-3 px-6 rounded transition-colors",
+    plan.popular ? "bg-teal hover:bg-teal-dark text-white" : "border border-slate-300 hover:border-slate-500 text-slate-900"
+  ], "class:list")}>
+Get Started
+</a> </div> </div>`)} </div> <!-- Setup fee note --> <p class="mt-10 text-center text-slate-500 text-sm max-w-xl mx-auto"> <strong class="text-slate-900">One-time setup fee: $200–$500.</strong>${" "}
+We handle full configuration, AI training on your business, and optimization — so you're ready to capture customers from day one.
+</p> </div> </section> <!-- ════════════════════════════════════════
+         FINAL CTA STRIP
+         ════════════════════════════════════════ --> <section class="bg-slate-950 py-24" aria-label="Call to action"> <div class="max-w-6xl mx-auto px-6 text-center"> <h2 class="font-heading font-extrabold text-white text-heading mb-4">
+Start capturing every inquiry today.
+</h2> <p class="text-slate-400 mb-10 max-w-md mx-auto">
+Most businesses go live within 48 hours. No technical setup required on your end.
+</p> <div class="flex flex-wrap justify-center gap-4"> <a href="#pricing" class="bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
+View Pricing
+</a> <a href="mailto:hello@getsynq.ca" class="border border-slate-600 hover:border-slate-400 text-white font-semibold text-sm px-6 py-3 rounded transition-colors">
+Talk to Us
+</a> </div> </div> </section> </main>  <footer class="bg-slate-950 border-t border-slate-800 py-10"> <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6"> <a href="#" class="font-heading font-bold text-white text-lg tracking-tight">
+Synq<span class="text-teal">AI</span> </a> <nav class="flex flex-wrap justify-center gap-6 text-sm" aria-label="Footer navigation"> <a href="#how" class="text-slate-500 hover:text-white transition-colors">How It Works</a> <a href="#pricing" class="text-slate-500 hover:text-white transition-colors">Pricing</a> <a href="mailto:hello@getsynq.ca" class="text-slate-500 hover:text-white transition-colors">Contact</a> </nav> <p class="text-slate-600 text-xs">© 2026 SynqAI. All rights reserved.</p> </div> </footer> ` })}`;
+}, "/sessions/lucid-compassionate-ptolemy/mnt/outputs/synq/src/pages/index.astro", void 0);
+
+const $$file = "/sessions/lucid-compassionate-ptolemy/mnt/outputs/synq/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

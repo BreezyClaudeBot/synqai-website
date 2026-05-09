@@ -1,0 +1,44 @@
+---
+interface Props {
+  title?:       string;
+  description?: string;
+}
+
+const {
+  title       = 'Synq — Never Miss Another Customer Inquiry',
+  description = 'Synq automatically handles calls, texts, and website messages so you capture more bookings and opportunities — without adding staff.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://getsynq.ca');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonical.href} />
+
+    <!-- Fonts: Plus Jakarta Sans (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon placeholder — TODO: replace with real logo -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230D9488'/><text x='16' y='22' font-family='sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='white'>S</text></svg>" />
+  </head>
+  <body class="bg-white font-sans text-slate-900 antialiased">
+    <slot />
+    <!-- TODO: Add analytics or chatbot script here -->
+  </body>
+</html>
