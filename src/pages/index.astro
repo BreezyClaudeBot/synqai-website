@@ -1,34 +1,34 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// ─── Pricing tiers — reordered ascending ($75 → $175 → $350) ───────────────
-// Original site order was Engage → Front Desk → Capture, which breaks the
-// "Everything in previous tier" hierarchy. Reordered for clarity.
+// ─── Pricing tiers — ordered ascending ($30 → $150 → $350) ───────────────────
 const plans = [
   {
-    name:        'Synq Engage',
-    subtitle:    'Website Layer',
-    description: 'Turn website visitors into paying customers automatically.',
-    price:       '$75',
+    name:        'SynqLite',
+    subtitle:    'Simple Website Chatbot',
+    description: 'A lightweight website chatbot for straightforward Q&A.',
+    price:       '$30',
+    popular:     false,
+    features: [
+      'Answers basic questions from your website content',
+      'Website chat only (no SMS or voice channels)',
+      'Up to 150 answered questions per month',
+      'One-time setup fee: $50',
+      'Email support for basic updates',
+    ],
+  },
+  {
+    name:        'SynqEngage',
+    subtitle:    'Website + Missed Call Recovery',
+    description: 'Turn website visitors and missed calls into paying customers automatically.',
+    price:       '$150',
     popular:     false,
     features: [
       'AI assistant trained on your business to answer questions instantly',
       'Captures name, email, phone and preferred dates from potential leads',
       'Appointment requests sent straight to your inbox — ready to confirm',
-      'Full chat logs for each conversation for continued performance enhancement over time',
-      'We handle all the setup — you just start getting leads',
-    ],
-  },
-  {
-    name:        'Synq Capture',
-    subtitle:    'Missed Inquiry Recovery',
-    description: 'Turn missed calls into revenue before they call someone else.',
-    price:       '$175',
-    popular:     false,
-    features: [
-      'Everything in Synq Engage',
       'Missed calls automatically trigger an SMS to the caller within seconds',
-      'Collects their name, email, and phone — turns a missed call into a lead',
+      'Collects caller details and turns missed calls into qualified leads',
       'Real conversational AI over SMS — customers get answers, you get leads',
       'Includes a dedicated Canadian or US phone number with unlimited texts',
     ],
@@ -40,11 +40,64 @@ const plans = [
     price:       '$350',
     popular:     true,
     features: [
-      'Everything in Synq Capture',
+      'Everything in SynqEngage',
       'AI voice assistant that picks up after hours — a real conversation instead of a voicemail',
       'All three channels working together — website chat, missed call SMS, and live voice',
       'Includes a second dedicated US or Canadian number for voice call routing',
       'Monthly performance review — we analyze conversations and fine-tune your AI for your business',
+    ],
+  },
+];
+
+const industries = [
+  {
+    label: 'Clinics',
+    summary: 'Capture appointment requests around the clock.',
+    useCases: [
+      'Answer treatment and pricing questions instantly',
+      'Handle new patient inquiries after hours',
+      'Collect booking details before staff follow-up',
+      'Route urgent inquiries to the right contact',
+    ],
+  },
+  {
+    label: 'Restaurants',
+    summary: 'Handle reservations and guest inquiries automatically.',
+    useCases: [
+      'Respond to menu and dietary questions',
+      'Capture reservation requests 24/7',
+      'Handle catering and private event inquiries',
+      'Convert missed calls into confirmed bookings',
+    ],
+  },
+  {
+    label: 'Auto Shops',
+    summary: 'Never miss a service call or estimate request.',
+    useCases: [
+      'Answer common service and maintenance questions',
+      'Capture quote requests with vehicle details',
+      'Follow up missed calls via SMS instantly',
+      'Pre-qualify jobs before team callback',
+    ],
+  },
+  {
+    label: 'Home Services',
+    summary: 'Capture leads from every call and inquiry.',
+    useCases: [
+      'Collect job details and customer contact info',
+      'Handle after-hours emergency inquiries',
+      'Answer service area and availability questions',
+      'Turn website visitors into booked estimates',
+    ],
+  },
+  {
+    label: 'Agencies',
+    summary: 'Qualify and route inbound leads instantly.',
+    useCases: [
+      'Qualify leads by budget and service needs',
+      'Answer service offering and timeline questions',
+      'Book discovery calls automatically',
+      'Route qualified prospects to the right team',
     ],
   },
 ];
@@ -117,9 +170,9 @@ const plans = [
           <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800 border border-slate-800 rounded overflow-hidden">
             {[
               { value: '24/7',   label: 'Response Coverage' },
-              { value: '<60s',   label: 'Response Time' },
+              { value: 'Instant',   label: 'Response Time' },
               { value: '3×',     label: 'More Inquiries Captured' },
-              { value: '$0',     label: 'Extra Staff Required' },
+              { value: 'Save $20,000+', label: 'in staffing costs' },
             ].map(s => (
               <div class="bg-slate-900 px-6 py-5">
                 <p class="font-heading text-2xl font-bold text-white mb-1">{s.value}</p>
@@ -250,26 +303,109 @@ const plans = [
           </p>
         </div>
 
-        <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { label: 'Clinics',        desc: 'Capture appointment requests around the clock' },
-            { label: 'Restaurants',    desc: 'Handle reservations and inquiries automatically' },
-            { label: 'Auto Shops',     desc: 'Never miss a service call or estimate request' },
-            { label: 'Home Services',  desc: 'Capture leads from every call and inquiry' },
-            { label: 'Agencies',       desc: 'Qualify and route inbound leads instantly' },
-          ].map(b => (
-            <div class="flex gap-4 py-5 border-b border-slate-100">
-              <div class="mt-0.5 w-2 h-2 rounded-full bg-teal shrink-0 translate-y-1.5"></div>
-              <div>
-                <dt class="font-heading font-semibold text-slate-900 mb-0.5">{b.label}</dt>
-                <dd class="text-slate-500 text-sm">{b.desc}</dd>
-              </div>
+        <div data-industry-carousel class="max-w-4xl">
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <button
+              type="button"
+              data-prev
+              class="inline-flex items-center justify-center border border-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded hover:border-slate-500 transition-colors"
+              aria-label="Previous industry"
+            >
+              Prev
+            </button>
+            <div class="flex items-center gap-2" role="tablist" aria-label="Industry slides">
+              {industries.map((_, idx) => (
+                <button
+                  type="button"
+                  data-dot
+                  data-index={idx}
+                  class:list={['w-2.5 h-2.5 rounded-full transition-colors', idx === 0 ? 'bg-teal' : 'bg-slate-300']}
+                  aria-label={`Go to industry ${idx + 1}`}
+                  aria-current={idx === 0 ? 'true' : 'false'}
+                ></button>
+              ))}
             </div>
-          ))}
-        </dl>
+            <button
+              type="button"
+              data-next
+              class="inline-flex items-center justify-center border border-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded hover:border-slate-500 transition-colors"
+              aria-label="Next industry"
+            >
+              Next
+            </button>
+          </div>
+
+          <div class="border border-slate-200 rounded-lg p-8 bg-slate-50">
+            {industries.map((industry, idx) => (
+              <article data-slide class:list={[idx === 0 ? 'block' : 'hidden']}>
+                <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-2">Industry</p>
+                <h3 class="font-heading text-2xl font-bold text-slate-900 mb-3">{industry.label}</h3>
+                <p class="text-slate-600 mb-6">{industry.summary}</p>
+
+                <h4 class="font-heading font-semibold text-slate-900 mb-3">Common use cases</h4>
+                <ul class="space-y-3">
+                  {industry.useCases.map(useCase => (
+                    <li class="flex gap-3 text-sm text-slate-600">
+                      <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      {useCase}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>
+
+    <script is:inline>
+      (() => {
+        const root = document.querySelector('[data-industry-carousel]');
+        if (!root) return;
+
+        const slides = Array.from(root.querySelectorAll('[data-slide]'));
+        const dots = Array.from(root.querySelectorAll('[data-dot]'));
+        const prev = root.querySelector('[data-prev]');
+        const next = root.querySelector('[data-next]');
+        let currentIndex = 0;
+
+        const update = () => {
+          slides.forEach((slide, index) => {
+            const isActive = index === currentIndex;
+            slide.classList.toggle('hidden', !isActive);
+            slide.classList.toggle('block', isActive);
+            slide.setAttribute('aria-hidden', String(!isActive));
+          });
+
+          dots.forEach((dot, index) => {
+            const isActive = index === currentIndex;
+            dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            dot.classList.toggle('bg-teal', isActive);
+            dot.classList.toggle('bg-slate-300', !isActive);
+          });
+        };
+
+        prev?.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+          update();
+        });
+
+        next?.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % slides.length;
+          update();
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            update();
+          });
+        });
+
+        update();
+      })();
+    </script>
 
 
     <!-- ════════════════════════════════════════
@@ -337,11 +473,11 @@ const plans = [
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {plans.map(plan => (
             <div
               class:list={[
-                'rounded-lg border flex flex-col',
+                'rounded-lg border flex flex-col h-full',
                 plan.popular
                   ? 'border-teal shadow-lg shadow-teal/10 relative'
                   : 'border-slate-200',
@@ -355,10 +491,10 @@ const plans = [
                 </div>
               )}
 
-              <div class:list={['p-7 border-b', plan.popular ? 'border-teal/20' : 'border-slate-100']}>
+              <div class:list={['p-7 border-b flex flex-col', plan.popular ? 'border-teal/20' : 'border-slate-100']}>
                 <p class="text-slate-500 text-xs font-semibold tracking-widest uppercase mb-1">{plan.subtitle}</p>
                 <h3 class="font-heading font-bold text-slate-900 text-lg mb-3">{plan.name}</h3>
-                <p class="text-slate-500 text-sm mb-5">{plan.description}</p>
+                <p class="text-slate-500 text-sm mb-5 min-h-[4.5rem]">{plan.description}</p>
                 <div class="flex items-baseline gap-1">
                   <span class="font-heading font-extrabold text-slate-900 text-4xl">{plan.price}</span>
                   <span class="text-slate-500 text-sm">/mo</span>
@@ -394,7 +530,7 @@ const plans = [
 
         <!-- Setup fee note -->
         <p class="mt-10 text-center text-slate-500 text-sm max-w-xl mx-auto">
-          <strong class="text-slate-900">One-time setup fee: $200–$500.</strong>{' '}
+          <strong class="text-slate-900">One-time setup fee: $50 for Q&A Lite, $200–$500 for advanced tiers.</strong>{' '}
           We handle full configuration, AI training on your business, and optimization — so you're ready to capture customers from day one.
         </p>
 
