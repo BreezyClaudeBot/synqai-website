@@ -529,9 +529,8 @@ const industries = [
                   ))}
                 </ul>
 
-                <!-- TODO: Replace href="#" with real signup/onboarding URL -->
                 <a
-                  href="#"
+                  href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
                   class:list={[
                     'block text-center font-semibold text-sm py-3 px-6 rounded transition-colors',
                     plan.popular
@@ -539,7 +538,7 @@ const industries = [
                       : 'border border-slate-300 hover:border-slate-500 text-slate-900',
                   ]}
                 >
-                  Get Started
+                  Contact Our Team
                 </a>
               </div>
             </div>
