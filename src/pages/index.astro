@@ -1,51 +1,126 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// ─── Pricing tiers — USD default with CAD toggle ──────────────────────────────
-const plans = [
+// ─── Modular pricing — chatbot base plans + add-on features ──────────────────
+// positive: true = checkmark, positive: 'limit' = amber dash, positive: false = X
+const chatbots = [
   {
-    name:        'SynqLite',
-    subtitle:    'Simple Website Chatbot',
-    description: 'A lightweight website chatbot for straightforward Q&A.',
-    price:       { usd: '$22', cad: 'C$30' },
+    eyebrow:     'BASIC WEBSITE Q&A',
+    name:        'SynqLite Chatbot',
+    priceCad:    '$39/mo CAD',
+    priceUsd:    '$29/mo USD',
     popular:     false,
+    description: 'A simple website chatbot that answers common customer questions using your website content.',
+    idealFor:    'Ideal for: restaurants, coffee shops, auto shops, retail stores, salons, and simple service businesses.',
     features: [
-      'Answers basic questions from your website content',
-      'Website chat only (no SMS or voice channels)',
-      'Up to 150 answered questions per month',
-      'One-time setup fee applies',
-      'Email support for basic updates',
+      { positive: true,    text: 'Answers common questions from your website content' },
+      { positive: true,    text: 'Website chat only' },
+      { positive: true,    text: 'Limited monthly AI answers' },
+      { positive: true,    text: 'Basic updates and support' },
+      { positive: 'limit', text: 'Limited appointment request support' },
+      { positive: 'limit', text: 'Limited chat logging' },
+      { positive: true,    text: 'SMS & voice add-ons available' },
+      { positive: true,    text: 'One-time setup fee applies' },
     ],
   },
   {
-    name:        'Synq Front Desk',
-    subtitle:    'Full AI Front Desk',
-    description: 'Run a 24/7 front desk without hiring a single extra person.',
-    price:       { usd: '$255', cad: 'C$350' },
+    eyebrow:     'ADVANCED CHATBOT + LEAD CAPTURE',
+    name:        'SynqPlus Chatbot',
+    priceCad:    '$75/mo CAD',
+    priceUsd:    '$55/mo USD',
     popular:     true,
+    description: 'An advanced chatbot that captures leads and collects appointment request details.',
+    idealFor:    "Ideal for: doctors' offices, dental clinics, spas, wellness clinics, med spas, consultants, and appointment-based businesses.",
     features: [
-      'Everything in SynqEngage',
-      'AI voice assistant that picks up after hours — a real conversation instead of a voicemail',
-      'All three channels working together — website chat, missed call SMS, and live voice',
-      'Includes a second dedicated US or Canadian number for voice call routing',
-      'Monthly performance review — we analyze conversations and fine-tune your AI for your business',
+      { positive: true, text: 'Everything in SynqLite' },
+      { positive: true, text: 'Captures name, email, phone number, and inquiry details' },
+      { positive: true, text: 'Appointment request forms with preferred dates and times' },
+      { positive: true, text: 'Higher monthly AI request limit' },
+      { positive: true, text: 'Full chat logs for review and improvement' },
+      { positive: true, text: 'Ongoing chatbot refinement and updates' },
+      { positive: true, text: 'SMS & voice add-ons available' },
+      { positive: true, text: 'One-time setup fee applies' },
+    ],
+  },
+];
+
+const addons = [
+  {
+    eyebrow:       'MISSED-CALL FOLLOW-UP',
+    name:          'Missed-Call SMS Recovery',
+    standaloneCad: '$75/mo CAD',
+    standaloneUsd: '$55/mo USD',
+    addonCad:      '+$50/mo CAD',
+    addonUsd:      '+$37/mo USD',
+    savingsCad:    'Save $25/mo when added to a plan',
+    savingsUsd:    'Save $18/mo when added to a plan',
+    description:   'Automatically text missed callers and collect their information so leads do not disappear.',
+    idealFor:      'Ideal for: clinics, dental offices, repair shops, contractors, home service businesses, spas, and businesses that regularly miss phone calls.',
+    features: [
+      'Automatic SMS follow-up after missed calls',
+      'Captures caller name, phone number, and inquiry details',
+      'Sends lead details to your inbox',
+      'Dedicated Canadian or US SMS number',
+      'Monthly SMS usage limit included',
+      'Works standalone or as a plan add-on',
+      'One-time setup fee applies',
     ],
   },
   {
-    name:        'SynqEngage',
-    subtitle:    'Website + Missed Call Recovery',
-    description: 'Turn website visitors and missed calls into paying customers automatically.',
-    price:       { usd: '$110', cad: 'C$150' },
-    popular:     false,
+    eyebrow:       'AFTER-HOURS CALL HANDLING',
+    name:          'AI Voice Assistant',
+    standaloneCad: '$200/mo CAD',
+    standaloneUsd: '$145/mo USD',
+    addonCad:      '+$150/mo CAD',
+    addonUsd:      '+$110/mo USD',
+    savingsCad:    'Save $50/mo when added to a plan',
+    savingsUsd:    'Save $35/mo when added to a plan',
+    description:   'An AI voice assistant that answers after-hours calls and collects caller information.',
+    idealFor:      'Ideal for: medical clinics, dental offices, wellness clinics, med spas, law offices, real estate offices, and service businesses that receive calls outside business hours.',
     features: [
-      'AI assistant trained on your business to answer questions instantly',
-      'Captures name, email, phone and preferred dates from potential leads',
-      'Appointment requests sent straight to your inbox — ready to confirm',
-      'Missed calls automatically trigger an SMS to the caller within seconds',
-      'Collects caller details and turns missed calls into qualified leads',
-      'Real conversational AI over SMS — customers get answers, you get leads',
-      'Includes a dedicated Canadian or US phone number with unlimited texts',
+      'Answers after-hours incoming calls',
+      'Collects caller information and reason for calling',
+      'Answers common business questions',
+      'Sends call summaries to your inbox',
+      'Dedicated Canadian or US voice number for call routing',
+      'Monthly voice usage limit included',
+      'One-time setup fee applies',
     ],
+  },
+];
+
+const bundles = [
+  {
+    name:     'Basic Website Assistant',
+    popular:  false,
+    includes: ['SynqLite Chatbot'],
+    priceCad: '$39/mo CAD',
+    priceUsd: '$29/mo USD',
+    bestFor:  'Simple businesses that only need website Q&A.',
+  },
+  {
+    name:     'Lead Capture Website Assistant',
+    popular:  false,
+    includes: ['SynqPlus Chatbot'],
+    priceCad: '$75/mo CAD',
+    priceUsd: '$55/mo USD',
+    bestFor:  'Appointment-based businesses that want website visitors to submit their details.',
+  },
+  {
+    name:     'Lead Capture + Missed Calls',
+    popular:  false,
+    includes: ['SynqPlus Chatbot', 'Missed-Call SMS Recovery'],
+    priceCad: '$125/mo CAD',
+    priceUsd: '$92/mo USD',
+    bestFor:  'Businesses that want to capture both website leads and missed phone calls.',
+  },
+  {
+    name:     'Full AI Front Desk',
+    popular:  true,
+    includes: ['SynqPlus Chatbot', 'Missed-Call SMS Recovery', 'AI Voice Assistant'],
+    priceCad: '$275/mo CAD',
+    priceUsd: '$200/mo USD',
+    bestFor:  'Businesses that want website chat, missed-call follow-up, and after-hours call handling.',
   },
 ];
 
@@ -463,92 +538,216 @@ const industries = [
     <section id="pricing" class="py-24 bg-white border-t border-slate-100" aria-labelledby="pricing-heading">
       <div class="max-w-6xl mx-auto px-6">
 
+        <!-- Section header -->
         <div class="mb-16">
           <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">Pricing</p>
-          <h2 id="pricing-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
-            Start where you need. Scale as you grow.
+          <h2 id="pricing-heading" class="font-heading text-heading text-slate-900 font-bold max-w-xl">
+            Flexible AI Front Desk Pricing
           </h2>
-          <p class="mt-4 text-slate-500 max-w-md">
-            Every plan includes onboarding support and setup tailored to your business.
+          <p class="mt-4 text-slate-500 max-w-lg">
+            Start with the chatbot your business needs, then add missed-call SMS or AI voice support when you're ready.
           </p>
-          <div data-currency-toggle class="mt-6 inline-flex items-center rounded-lg border border-slate-200 p-1 bg-white">
+          <!-- Currency toggle -->
+          <div class="flex items-center gap-2 mt-5">
+            <span class="text-slate-500 text-sm">Show prices in:</span>
             <button
-              type="button"
-              data-currency-option="usd"
-              aria-pressed="true"
-              class="px-3 py-1.5 rounded-md text-sm font-semibold bg-slate-900 text-white"
-            >
-              🇺🇸 USD
-            </button>
+              data-currency-btn="cad"
+              class="text-xs font-semibold px-3 py-1.5 rounded border bg-slate-900 text-white border-slate-900 transition-colors"
+            >CAD</button>
             <button
-              type="button"
-              data-currency-option="cad"
-              aria-pressed="false"
-              class="px-3 py-1.5 rounded-md text-sm font-semibold text-slate-600"
-            >
-              🇨🇦 CAD
-            </button>
+              data-currency-btn="usd"
+              class="text-xs font-semibold px-3 py-1.5 rounded border border-slate-300 text-slate-600 hover:border-slate-500 transition-colors"
+            >USD</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {plans.map(plan => (
-            <div
-              class:list={[
-                'rounded-lg border flex flex-col h-full',
-                plan.popular
-                  ? 'border-teal shadow-lg shadow-teal/10 relative'
-                  : 'border-slate-200',
-              ]}
-            >
-              {plan.popular && (
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
-                    Most Popular
-                  </span>
-                </div>
-              )}
 
-              <div class:list={['p-7 border-b flex flex-col', plan.popular ? 'border-teal/20' : 'border-slate-100']}>
-                <p class="text-slate-500 text-xs font-semibold tracking-widest uppercase mb-1">{plan.subtitle}</p>
-                <h3 class="font-heading font-bold text-slate-900 text-lg mb-3">{plan.name}</h3>
-                <p class="text-slate-500 text-sm mb-5 min-h-[4.5rem]">{plan.description}</p>
-                <div class="flex items-baseline gap-1">
-                  <span class="font-heading font-extrabold text-slate-900 text-4xl" data-price data-usd={plan.price.usd} data-cad={plan.price.cad}>{plan.price.usd}</span>
-                  <span class="text-slate-500 text-sm">/mo</span>
+        <!-- ── Subsection 1: Website Chatbots ─────────────────────── -->
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-8">
+            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Website Chatbots</h3>
+            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {chatbots.map(plan => (
+              <div
+                class:list={[
+                  'rounded-lg border flex flex-col relative',
+                  plan.popular
+                    ? 'border-teal shadow-lg shadow-teal/10'
+                    : 'border-slate-200',
+                ]}
+              >
+                {plan.popular && (
+                  <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                    <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+
+                <div class:list={['p-7 border-b', plan.popular ? 'border-teal/20' : 'border-slate-100']}>
+                  <p class="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-1">{plan.eyebrow}</p>
+                  <h4 class="font-heading font-bold text-slate-900 text-lg mb-3">{plan.name}</h4>
+                  <p class="text-slate-500 text-sm mb-3">{plan.description}</p>
+                  <p class="text-slate-400 text-xs italic mb-5">{plan.idealFor}</p>
+                  <p class="font-heading font-extrabold text-slate-900 text-4xl">
+                    <span data-price-cad>{plan.priceCad}</span>
+                    <span data-price-usd class="hidden">{plan.priceUsd}</span>
+                  </p>
+                </div>
+
+                <div class="p-7 flex flex-col flex-1">
+                  <ul class="space-y-3 mb-8 flex-1">
+                    {plan.features.map(f => (
+                      <li class="flex gap-3 text-sm">
+                        {f.positive === true ? (
+                          <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        ) : f.positive === 'limit' ? (
+                          <svg class="text-amber-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        ) : (
+                          <svg class="text-slate-300 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        )}
+                        <span class:list={[
+                          f.positive === false ? 'text-slate-400' : f.positive === 'limit' ? 'text-slate-500' : 'text-slate-600'
+                        ]}>{f.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
+                    class:list={[
+                      'block text-center font-semibold text-sm py-3 px-6 rounded transition-colors',
+                      plan.popular
+                        ? 'bg-teal hover:bg-teal-dark text-white'
+                        : 'border border-slate-300 hover:border-slate-500 text-slate-900',
+                    ]}
+                  >
+                    Contact Our Team
+                  </a>
                 </div>
               </div>
-
-              <div class="p-7 flex flex-col flex-1">
-                <ul class="space-y-3 mb-8 flex-1">
-                  {plan.features.map(f => (
-                    <li class="flex gap-3 text-sm text-slate-600">
-                      <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
-                  class:list={[
-                    'block text-center font-semibold text-sm py-3 px-6 rounded transition-colors',
-                    plan.popular
-                      ? 'bg-teal hover:bg-teal-dark text-white'
-                      : 'border border-slate-300 hover:border-slate-500 text-slate-900',
-                  ]}
-                >
-                  Contact Our Team
-                </a>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
+
+        <!-- ── Subsection 2: Communication Add-ons ────────────────── -->
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-3">
+            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Communication Add-ons</h3>
+            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+          </div>
+          <p class="text-slate-500 text-sm mb-8">Available standalone or at a discount when added to any chatbot plan.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {addons.map(addon => (
+              <div class="rounded-lg border border-slate-200 bg-slate-50 flex flex-col">
+                <div class="p-7 border-b border-slate-200">
+                  <p class="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-1">{addon.eyebrow}</p>
+                  <h4 class="font-heading font-bold text-slate-900 text-lg mb-3">{addon.name}</h4>
+                  <p class="text-slate-500 text-sm mb-3">{addon.description}</p>
+                  <p class="text-slate-400 text-xs italic mb-5">{addon.idealFor}</p>
+                  <!-- Standalone price (crossed out) -->
+                  <p class="text-slate-400 text-sm mb-1">
+                    Standalone: <span class="line-through">
+                      <span data-price-cad>{addon.standaloneCad}</span><span data-price-usd class="hidden">{addon.standaloneUsd}</span>
+                    </span>
+                  </p>
+                  <!-- Add-on price -->
+                  <p class="font-heading font-extrabold text-teal text-4xl">
+                    <span data-price-cad>{addon.addonCad}</span>
+                    <span data-price-usd class="hidden">{addon.addonUsd}</span>
+                  </p>
+                  <p class="text-teal text-xs font-semibold mt-1">
+                    <span data-price-cad>{addon.savingsCad}</span>
+                    <span data-price-usd class="hidden">{addon.savingsUsd}</span>
+                  </p>
+                </div>
+
+                <div class="p-7 flex flex-col flex-1">
+                  <ul class="space-y-3 mb-8 flex-1">
+                    {addon.features.map(f => (
+                      <li class="flex gap-3 text-sm text-slate-600">
+                        <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${addon.name}`)}`}
+                    class="block text-center font-semibold text-sm py-3 px-6 rounded transition-colors border border-slate-300 hover:border-slate-500 text-slate-900"
+                  >
+                    Add to Package
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        <!-- ── Example Bundles ─────────────────────────────────────── -->
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-3">
+            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Example Packages</h3>
+            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+          </div>
+          <p class="text-slate-500 text-sm mb-8">Combine the features your business needs. These are common setups.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {bundles.map(bundle => (
+              <div class="rounded-lg border border-slate-200 bg-white p-6 flex flex-col gap-4 relative">
+                {bundle.popular && (
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <div>
+                  <h4 class="font-heading font-bold text-slate-900 mb-2">{bundle.name}</h4>
+                  <ul class="space-y-1">
+                    {bundle.includes.map(item => (
+                      <li class="flex items-center gap-2 text-sm text-slate-600">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="mt-auto pt-4 border-t border-slate-200 flex items-end justify-between gap-4">
+                  <p class="font-heading font-extrabold text-slate-900 text-2xl">
+                    <span data-price-cad>{bundle.priceCad}</span>
+                    <span data-price-usd class="hidden">{bundle.priceUsd}</span>
+                  </p>
+                  <p class="text-slate-500 text-xs text-right max-w-[160px]">{bundle.bestFor}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        <!-- ── Build your own ──────────────────────────────────────── -->
+        <div class="rounded-lg border border-slate-200 p-8 text-center mb-10">
+          <h3 class="font-heading font-bold text-slate-900 text-xl mb-2">Need a custom setup?</h3>
+          <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">
+            Build your own SynqAI package by combining the chatbot, missed-call SMS, and AI voice features your business needs.
+          </p>
+          <a
+            href="mailto:alichaudhry.software@gmail.com?subject=Custom%20SynqAI%20Package"
+            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
+          >
+            Contact Our Team
+          </a>
+        </div>
+
+
         <!-- Setup fee note -->
-        <p class="mt-10 text-center text-slate-500 text-sm max-w-xl mx-auto">
-          <strong class="text-slate-900" data-setup-note data-usd="One-time setup fee: $35 for Q&A Lite, $150-$365 for advanced tiers." data-cad="One-time setup fee: C$50 for Q&A Lite, C$200-C$500 for advanced tiers.">One-time setup fee: $35 for Q&A Lite, $150-$365 for advanced tiers.</strong>{' '}
-          We handle full configuration, AI training on your business, and optimization — so you're ready to capture customers from day one.
+        <p class="text-center text-slate-400 text-xs max-w-xl mx-auto">
+          One-time setup fee applies. Final setup cost depends on website size, call routing needs, AI training requirements, and customization level.
         </p>
 
       </div>
@@ -556,42 +755,35 @@ const industries = [
 
     <script is:inline>
       (() => {
-        const toggleRoot = document.querySelector('[data-currency-toggle]');
-        if (!toggleRoot) return;
+        const cadBtn = document.querySelector('[data-currency-btn="cad"]');
+        const usdBtn = document.querySelector('[data-currency-btn="usd"]');
+        const cadEls = document.querySelectorAll('[data-price-cad]');
+        const usdEls = document.querySelectorAll('[data-price-usd]');
 
-        const buttons = Array.from(toggleRoot.querySelectorAll('[data-currency-option]'));
-        const priceEls = Array.from(document.querySelectorAll('[data-price]'));
-        const setupNote = document.querySelector('[data-setup-note]');
+        const activeOn  = ['bg-slate-900', 'text-white', 'border-slate-900'];
+        const activeOff = ['border-slate-300', 'text-slate-600'];
 
-        const setCurrency = (currency) => {
-          buttons.forEach((button) => {
-            const isActive = button.getAttribute('data-currency-option') === currency;
-            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-            button.classList.toggle('bg-slate-900', isActive);
-            button.classList.toggle('text-white', isActive);
-            button.classList.toggle('text-slate-600', !isActive);
-          });
+        function setCAD() {
+          cadEls.forEach(el => el.classList.remove('hidden'));
+          usdEls.forEach(el => el.classList.add('hidden'));
+          cadBtn.classList.add(...activeOn);
+          cadBtn.classList.remove(...activeOff);
+          usdBtn.classList.remove(...activeOn);
+          usdBtn.classList.add(...activeOff);
+        }
 
-          priceEls.forEach((priceEl) => {
-            const nextValue = priceEl.getAttribute(`data-${currency}`);
-            if (nextValue) priceEl.textContent = nextValue;
-          });
+        function setUSD() {
+          usdEls.forEach(el => el.classList.remove('hidden'));
+          cadEls.forEach(el => el.classList.add('hidden'));
+          usdBtn.classList.add(...activeOn);
+          usdBtn.classList.remove(...activeOff);
+          cadBtn.classList.remove(...activeOn);
+          cadBtn.classList.add(...activeOff);
+        }
 
-          if (setupNote) {
-            const nextNote = setupNote.getAttribute(`data-${currency}`);
-            if (nextNote) setupNote.textContent = nextNote;
-          }
-        };
-
-        buttons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const currency = button.getAttribute('data-currency-option');
-            if (!currency) return;
-            setCurrency(currency);
-          });
-        });
-
-        setCurrency('usd');
+        cadBtn?.addEventListener('click', setCAD);
+        usdBtn?.addEventListener('click', setUSD);
+        setCAD();
       })();
     </script>
 
