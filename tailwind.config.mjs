@@ -16,8 +16,8 @@ export default {
         },
       },
       fontSize: {
-        'display': ['clamp(2.75rem, 6vw, 5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-        'heading': ['clamp(1.75rem, 3vw, 2.5rem)',  { lineHeight: '1.2',  letterSpacing: '-0.02em' }],
+        'display': ['clamp(2.5rem, 5.5vw, 4.5rem)', { lineHeight: '1.06', letterSpacing: '-0.04em' }],
+        'heading': ['clamp(1.75rem, 3vw, 2.5rem)',  { lineHeight: '1.18', letterSpacing: '-0.03em' }],
       },
     },
   },

@@ -1,132 +1,72 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// ─── Modular pricing — chatbot base plans + add-on features ──────────────────
-// positive: true = checkmark, positive: 'limit' = amber dash, positive: false = X
 const chatbots = [
   {
-    eyebrow:     'BASIC WEBSITE Q&A',
-    name:        'SynqLite Chatbot',
-    priceCad:    '$39/mo CAD',
-    priceUsd:    '$29/mo USD',
-    popular:     false,
-    description: 'A simple website chatbot that answers common customer questions using your website content.',
-    idealFor:    'Ideal for: restaurants, coffee shops, auto shops, retail stores, salons, and simple service businesses.',
+    eyebrow: 'WEBSITE Q&A',
+    name:    'SynqLite',
+    badge:   null,
+    description: 'A smart website chatbot that answers customer questions instantly using your business content — available around the clock.',
+    idealFor:    'Restaurants, coffee shops, auto shops, retail stores, salons, and simple service businesses.',
     features: [
-      { positive: true,    text: 'Answers common questions from your website content' },
-      { positive: true,    text: 'Website chat only' },
-      { positive: true,    text: 'Limited monthly AI answers' },
-      { positive: true,    text: 'Basic updates and support' },
-      { positive: 'limit', text: 'Limited appointment request support' },
-      { positive: 'limit', text: 'Limited chat logging' },
-      { positive: true,    text: 'SMS & voice add-ons available' },
-      { positive: true,    text: 'One-time setup fee applies' },
+      'Answers common questions from your website content',
+      'Fully branded website chat widget',
+      'Basic updates and ongoing support',
+      'Appointment request support',
+      'Chat logging and history',
+      'SMS & voice add-ons available',
     ],
   },
   {
-    eyebrow:     'ADVANCED CHATBOT + LEAD CAPTURE',
-    name:        'SynqPlus Chatbot',
-    priceCad:    '$75/mo CAD',
-    priceUsd:    '$55/mo USD',
-    popular:     true,
-    description: 'An advanced chatbot that captures leads and collects appointment request details.',
-    idealFor:    "Ideal for: doctors' offices, dental clinics, spas, wellness clinics, med spas, consultants, and appointment-based businesses.",
+    eyebrow: 'LEAD CAPTURE + CHATBOT',
+    name:    'SynqPlus',
+    badge:   'Most Popular',
+    description: 'An advanced chatbot that captures leads, collects appointment request details, and keeps your team informed in real time.',
+    idealFor:    "Doctors' offices, dental clinics, spas, wellness clinics, med spas, consultants, and appointment-based businesses.",
     features: [
-      { positive: true, text: 'Everything in SynqLite' },
-      { positive: true, text: 'Captures name, email, phone number, and inquiry details' },
-      { positive: true, text: 'Appointment request forms with preferred dates and times' },
-      { positive: true, text: 'Higher monthly AI request limit' },
-      { positive: true, text: 'Full chat logs for review and improvement' },
-      { positive: true, text: 'Ongoing chatbot refinement and updates' },
-      { positive: true, text: 'SMS & voice add-ons available' },
-      { positive: true, text: 'One-time setup fee applies' },
+      'Everything in SynqLite',
+      'Captures name, email, phone, and inquiry details',
+      'Appointment request forms with preferred dates and times',
+      'Full chat logs for review and improvement',
+      'Ongoing chatbot refinement and updates',
+      'SMS & voice add-ons available',
     ],
   },
 ];
 
 const addons = [
   {
-    eyebrow:       'MISSED-CALL FOLLOW-UP',
-    name:          'Missed-Call SMS Recovery',
-    standaloneCad: '$75/mo CAD',
-    standaloneUsd: '$55/mo USD',
-    addonCad:      '+$50/mo CAD',
-    addonUsd:      '+$37/mo USD',
-    savingsCad:    'Save $25/mo when added to a plan',
-    savingsUsd:    'Save $18/mo when added to a plan',
-    description:   'Automatically text missed callers and collect their information so leads do not disappear.',
-    idealFor:      'Ideal for: clinics, dental offices, repair shops, contractors, home service businesses, spas, and businesses that regularly miss phone calls.',
+    eyebrow:     'MISSED-CALL FOLLOW-UP',
+    name:        'Missed-Call SMS Recovery',
+    description: 'Automatically text missed callers and collect their information — so no lead disappears to voicemail.',
+    idealFor:    'Clinics, dental offices, repair shops, contractors, home service businesses, and spas.',
     features: [
       'Automatic SMS follow-up after missed calls',
       'Captures caller name, phone number, and inquiry details',
-      'Sends lead details to your inbox',
+      'Sends lead details directly to your inbox',
       'Dedicated Canadian or US SMS number',
-      'Monthly SMS usage limit included',
-      'Works standalone or as a plan add-on',
-      'One-time setup fee applies',
+      'Works standalone or as an add-on to any plan',
     ],
   },
   {
-    eyebrow:       'AFTER-HOURS CALL HANDLING',
-    name:          'AI Voice Assistant',
-    standaloneCad: '$200/mo CAD',
-    standaloneUsd: '$145/mo USD',
-    addonCad:      '+$150/mo CAD',
-    addonUsd:      '+$110/mo USD',
-    savingsCad:    'Save $50/mo when added to a plan',
-    savingsUsd:    'Save $35/mo when added to a plan',
-    description:   'An AI voice assistant that answers after-hours calls and collects caller information.',
-    idealFor:      'Ideal for: medical clinics, dental offices, wellness clinics, med spas, law offices, real estate offices, and service businesses that receive calls outside business hours.',
+    eyebrow:     'AFTER-HOURS CALL HANDLING',
+    name:        'AI Voice Assistant',
+    description: 'An AI voice assistant that answers after-hours calls, handles common questions, and collects caller information.',
+    idealFor:    'Medical clinics, dental offices, wellness centres, law offices, real estate offices, and after-hours service businesses.',
     features: [
       'Answers after-hours incoming calls',
       'Collects caller information and reason for calling',
       'Answers common business questions',
-      'Sends call summaries to your inbox',
-      'Dedicated Canadian or US voice number for call routing',
-      'Monthly voice usage limit included',
-      'One-time setup fee applies',
+      'Sends call summaries directly to your inbox',
+      'Dedicated Canadian or US voice number',
     ],
-  },
-];
-
-const bundles = [
-  {
-    name:     'Basic Website Assistant',
-    popular:  false,
-    includes: ['SynqLite Chatbot'],
-    priceCad: '$39/mo CAD',
-    priceUsd: '$29/mo USD',
-    bestFor:  'Simple businesses that only need website Q&A.',
-  },
-  {
-    name:     'Lead Capture Website Assistant',
-    popular:  false,
-    includes: ['SynqPlus Chatbot'],
-    priceCad: '$75/mo CAD',
-    priceUsd: '$55/mo USD',
-    bestFor:  'Appointment-based businesses that want website visitors to submit their details.',
-  },
-  {
-    name:     'Lead Capture + Missed Calls',
-    popular:  false,
-    includes: ['SynqPlus Chatbot', 'Missed-Call SMS Recovery'],
-    priceCad: '$125/mo CAD',
-    priceUsd: '$92/mo USD',
-    bestFor:  'Businesses that want to capture both website leads and missed phone calls.',
-  },
-  {
-    name:     'Full AI Front Desk',
-    popular:  true,
-    includes: ['SynqPlus Chatbot', 'Missed-Call SMS Recovery', 'AI Voice Assistant'],
-    priceCad: '$275/mo CAD',
-    priceUsd: '$200/mo USD',
-    bestFor:  'Businesses that want website chat, missed-call follow-up, and after-hours call handling.',
   },
 ];
 
 const industries = [
   {
     label: 'Clinics',
+    image: '/industries/clinics.jpg',
     summary: 'Capture appointment requests around the clock.',
     useCases: [
       'Answer treatment and pricing questions instantly',
@@ -137,6 +77,7 @@ const industries = [
   },
   {
     label: 'Restaurants',
+    image: '/industries/restaurants.jpg',
     summary: 'Handle reservations and guest inquiries automatically.',
     useCases: [
       'Respond to menu and dietary questions',
@@ -147,6 +88,7 @@ const industries = [
   },
   {
     label: 'Auto Shops',
+    image: '/industries/auto-shops.jpg',
     summary: 'Never miss a service call or estimate request.',
     useCases: [
       'Answer common service and maintenance questions',
@@ -157,6 +99,7 @@ const industries = [
   },
   {
     label: 'Home Services',
+    image: '/industries/home-services.jpg',
     summary: 'Capture leads from every call and inquiry.',
     useCases: [
       'Collect job details and customer contact info',
@@ -167,6 +110,7 @@ const industries = [
   },
   {
     label: 'Agencies',
+    image: '/industries/agencies.jpg',
     summary: 'Qualify and route inbound leads instantly.',
     useCases: [
       'Qualify leads by budget and service needs',
@@ -176,31 +120,318 @@ const industries = [
     ],
   },
 ];
+
+const comparisons = [
+  {
+    without: 'Missed calls go straight to voicemail',
+    with: 'Every missed call triggers an instant SMS follow-up',
+  },
+  {
+    without: 'Customers wait hours — or never hear back',
+    with: 'Responses in under 60 seconds, any time of day',
+  },
+  {
+    without: 'Hiring more staff just to answer the phone',
+    with: 'AI handles the volume — no added headcount',
+  },
+  {
+    without: 'After-hours inquiries lost until morning',
+    with: '24/7 coverage across calls, texts, and chat',
+  },
+];
+
+const marqueeItems = [
+  'Dental Clinics', 'Medical Practices', 'Auto Shops', 'Home Services',
+  'Restaurants', 'Wellness Spas', 'Law Offices', 'Real Estate',
+  'Contractors', 'Fitness Studios', 'Veterinary Clinics', 'Salons',
+];
+
+const CONTACT = 'ali@getsynq.ca';
 ---
 
 <Base>
 
+  <style is:global>
+    /* ── Rotating hero text ── */
+    .rotate-wrap {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      height: 1.12em;
+      position: relative;
+    }
+    .rotate-inner {
+      display: flex;
+      flex-direction: column;
+      animation: rotate-words 8s cubic-bezier(.65,0,.35,1) infinite;
+    }
+    .rotate-inner span {
+      color: #0d9488;
+      display: block;
+      height: 1.12em;
+      line-height: 1.12;
+    }
+    .rotate-inner-light span {
+      color: #5eead4;
+      display: block;
+      height: 1.12em;
+      line-height: 1.12;
+    }
+    @keyframes rotate-words {
+      0%,20%  { transform: translateY(0); }
+      25%,45% { transform: translateY(-25%); }
+      50%,70% { transform: translateY(-50%); }
+      75%,95% { transform: translateY(-75%); }
+      100%    { transform: translateY(-100%); }
+    }
+
+    /* ── Marquee ── */
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 55s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* ── Hero headline — constrained so "Never Miss Another" stays one line ── */
+    .hero-h1 {
+      font-size: clamp(2rem, 3vw, 2.75rem) !important;
+      line-height: 1.06 !important;
+      letter-spacing: -0.04em !important;
+    }
+
+    /* ── Dot grid (dark backgrounds) ── */
+    .dot-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* ── Dot grid (cream / light backgrounds) ── */
+    .dot-grid-light::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,.055) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* ── Chat widget message animation ── */
+    .chat-msg {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: msg-in .4s ease forwards;
+    }
+    @keyframes msg-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-msg:nth-child(1) { animation-delay: .4s; }
+    .chat-msg:nth-child(2) { animation-delay: 1.6s; }
+    .chat-msg:nth-child(3) { animation-delay: 3.2s; }
+
+    .typing-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: #6b7280;
+      animation: blink .9s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: .2s; }
+    .typing-dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink {
+      0%,80%,100% { opacity:.25; transform: scale(.85); }
+      40%          { opacity:1;   transform: scale(1); }
+    }
+
+    .typing-wrap {
+      opacity: 0;
+      animation: typing-show .3s ease forwards, typing-hide .3s ease forwards;
+      animation-delay: 1.2s, 2.8s;
+    }
+    @keyframes typing-show { to { opacity: 1; } }
+    @keyframes typing-hide { to { opacity: 0; } }
+
+    .badge-pop {
+      opacity: 0;
+      transform: scale(.8) translateY(6px);
+      animation: badge-in .4s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    .badge-pop.delay-1 { animation-delay: 4s; }
+    .badge-pop.delay-2 { animation-delay: 5.6s; }
+    @keyframes badge-in {
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ── How It Works: animated channel cards ── */
+    .hiw-chat-msg {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .hiw-chat-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hiw-voice-msg,
+    .hiw-voice-summary {
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .hiw-voice-msg.show,
+    .hiw-voice-summary.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── How It Works: Missed-Call SMS animation ── */
+    .hiw-sms-screen {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .4s ease;
+      pointer-events: none;
+    }
+    .hiw-sms-screen.active {
+      opacity: 1;
+    }
+    .hiw-sms-field {
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .hiw-sms-field.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hiw-sms-pulse {
+      animation: sms-pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes sms-pulse {
+      0%, 100% { opacity: .4; transform: scale(1); }
+      50%      { opacity: 1;  transform: scale(1.35); }
+    }
+    .hiw-sms-connector-line {
+      transition: background-color .4s ease;
+    }
+    .hiw-sms-dot {
+      position: absolute;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: -3px;
+      opacity: 0;
+      transition: background-color .3s ease;
+    }
+    .hiw-sms-dot.animate-ltr {
+      animation: sms-dot-ltr 1.6s ease-in-out infinite;
+    }
+    .hiw-sms-dot.animate-rtl {
+      animation: sms-dot-rtl 1.6s ease-in-out infinite;
+    }
+    @keyframes sms-dot-ltr {
+      0%   { left: 0%;   opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+    @keyframes sms-dot-rtl {
+      0%   { left: 100%; opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { left: 0%;   opacity: 0; }
+    }
+    .hiw-sms-xbadge {
+      opacity: 0;
+      transform: scale(.5);
+      transition: opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1);
+    }
+    .hiw-sms-xbadge.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ── Before/after comparison rows ── */
+    .compare-row {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .compare-row.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .compare-strike {
+      position: relative;
+    }
+    .compare-strike::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 0;
+      height: 2px;
+      background: #ef4444;
+      transition: width .6s ease .3s;
+    }
+    .compare-row.visible .compare-strike::after {
+      width: 100%;
+    }
+    .compare-with {
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .compare-row.visible .compare-with {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: .6s;
+    }
+
+    /* ── Animated stats ── */
+    .stat-item {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: stat-in .5s ease forwards;
+    }
+    .stat-item:nth-child(1) { animation-delay: .6s; }
+    .stat-item:nth-child(2) { animation-delay: .8s; }
+    .stat-item:nth-child(3) { animation-delay: 1.0s; }
+    .stat-item:nth-child(4) { animation-delay: 1.2s; }
+    @keyframes stat-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+
   <!-- ════════════════════════════════════════
        HEADER
        ════════════════════════════════════════ -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-sm border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-stone-950/95 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
 
       <a href="#">
         <img src="/logo.png?v=20260509b" alt="SynqAI" class="h-8 w-auto" />
       </a>
 
       <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
-        <a href="#how"      class="text-sm text-slate-400 hover:text-white transition-colors">How It Works</a>
-        <a href="#outcomes" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
-        <a href="#pricing"  class="text-sm text-slate-400 hover:text-white transition-colors">Pricing</a>
+        <a href="#how"       class="text-sm text-stone-400 hover:text-white transition-colors">How It Works</a>
+        <a href="#outcomes"  class="text-sm text-stone-400 hover:text-white transition-colors">What You Gain</a>
+        <a href="#built-for" class="text-sm text-stone-400 hover:text-white transition-colors">Built For</a>
+        <a href="#solutions" class="text-sm text-stone-400 hover:text-white transition-colors">Solutions</a>
       </nav>
 
       <a
-        href="#pricing"
-        class="bg-teal hover:bg-teal-dark text-white text-sm font-medium px-4 py-2 rounded transition-colors"
+        href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
+        class="bg-teal hover:bg-teal-dark text-white text-sm font-semibold px-5 py-2.5 rounded-sm transition-colors"
       >
-        Get Started
+        Contact Sales
       </a>
     </div>
   </header>
@@ -209,54 +440,136 @@ const industries = [
   <main>
 
     <!-- ════════════════════════════════════════
-         HERO — the one expressive moment
+         HERO
          ════════════════════════════════════════ -->
-    <section class="bg-slate-950 pt-40 pb-24 min-h-screen flex items-center" aria-label="Hero">
-      <div class="max-w-6xl mx-auto px-6 w-full">
+    <section
+      class="relative dot-grid-light bg-stone-50 min-h-[85vh] flex items-center overflow-hidden pt-16 pb-12"
+      aria-label="Hero"
+    >
 
-        <div class="max-w-3xl">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-6">AI-Powered Front Desk</p>
+      <!-- Ambient glow -->
+      <div class="pointer-events-none absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-teal/[0.10] blur-[160px]" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-teal/[0.06] blur-[140px]" aria-hidden="true"></div>
 
-          <h1 class="font-heading text-display text-white font-extrabold mb-6">
-            Never Miss Another<br />
-            <em class="text-teal not-italic">Customer Inquiry</em>
-          </h1>
+      <div class="relative max-w-7xl mx-auto px-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <p class="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-            Synq automatically handles calls, texts, and website messages so you capture more bookings and opportunities — without adding staff.
-          </p>
+          <!-- Left: Copy -->
+          <div>
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-3 mb-8">
+              <span class="w-px h-7 bg-teal/70"></span>
+              <p class="text-teal text-xs font-semibold tracking-[0.18em] uppercase">AI-Powered Front Desk</p>
+            </div>
 
-          <div class="flex flex-wrap gap-4 mb-20">
-            <a
-              href="#how"
-              class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
-            >
-              See How It Works
-            </a>
-            <a
-              href="#pricing"
-              class="inline-block border border-slate-600 hover:border-slate-400 text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
-            >
-              View Pricing
-            </a>
+            <!-- Headline -->
+            <h1 class="hero-h1 font-heading text-stone-900 font-bold mb-6">
+              Never Miss Another <span class="rotate-wrap" aria-label="Customer">
+                <span class="rotate-inner" aria-hidden="true">
+                  <span>Customer</span>
+                  <span>Call</span>
+                  <span>Booking</span>
+                  <span>Customer</span>
+                </span>
+              </span>
+            </h1>
+
+            <p class="text-stone-500 text-lg leading-relaxed mb-9 font-sans">
+              Synq automatically handles calls, texts, and website messages — capturing every opportunity without adding headcount
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-14">
+              <a
+                href="#how"
+                class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
+              >
+                See How It Works
+              </a>
+              <a
+                href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
+                class="inline-block border border-stone-300 hover:border-teal/60 hover:text-teal text-stone-700 font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
+              >
+                Talk to Sales
+              </a>
+            </div>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 border border-stone-200 rounded-xl overflow-hidden bg-white">
+              {[
+                { value: '24/7',   label: 'Coverage' },
+                { value: '<1 min', label: 'Response' },
+                { value: '3×',     label: 'More Leads' },
+                { value: '$20K+',  label: 'Staffing Saved' },
+              ].map((s, i) => (
+                <div class:list={['stat-item px-5 py-4', i > 0 ? 'border-l border-stone-200' : '']}>
+                  <p class="font-heading text-xl font-bold text-stone-900 mb-0.5 tracking-tight">{s.value}</p>
+                  <p class="text-stone-400 text-xs font-sans">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <!-- Stats row -->
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800 border border-slate-800 rounded overflow-hidden">
-            {[
-              { value: '24/7',   label: 'Response Coverage' },
-              { value: 'Instant',   label: 'Response Time' },
-              { value: '3×',     label: 'More Inquiries Captured' },
-              { value: 'Save $20,000+', label: 'in staffing costs' },
-            ].map(s => (
-              <div class="bg-slate-900 px-6 py-5">
-                <p class="font-heading text-2xl font-bold text-white mb-1">{s.value}</p>
-                <p class="text-slate-500 text-xs">{s.label}</p>
-              </div>
-            ))}
+
+          <!-- Right: Live widget iframe -->
+          <div class="hidden lg:flex justify-center items-center relative" aria-hidden="true">
+
+            <!-- Glow behind widget -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-72 h-72 rounded-full bg-teal/8 blur-[70px]"></div>
+            </div>
+
+            <!-- Chatbot demo video -->
+            <div class="rounded-2xl bg-stone-200/60 border border-stone-300/50 p-3 shadow-xl shadow-stone-400/20">
+              <video
+                autoplay
+                loop
+                muted
+                playsinline
+                class="rounded-xl"
+                style="width: 390px; height: auto; display: block;"
+              >
+                <source src="/chatbot-demo.mov" type="video/mp4" />
+              </video>
+            </div>
+
           </div>
+
         </div>
+      </div>
+    </section>
 
+
+    <!-- ════════════════════════════════════════
+         TRUSTED BY
+         ════════════════════════════════════════ -->
+    <section class="py-5 bg-white border-y border-stone-200" aria-label="Trusted by">
+      <div class="max-w-4xl mx-auto px-6 flex items-center justify-center gap-8 md:gap-16">
+        <p class="text-stone-400 text-[10px] font-semibold tracking-[0.16em] uppercase shrink-0">Trusted By</p>
+        <div class="flex items-center gap-10 md:gap-16">
+          <a href="https://edmontonfootdoc.com/" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/fawc-logo.png" alt="Foot and Ankle Wellness Centre" class="h-7 md:h-8 object-contain opacity-60 hover:opacity-100 transition-opacity" style="filter: invert(1);" />
+          </a>
+          <a href="https://footandanklespecialist.com/" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/cfai-logo.svg" alt="Comprehensive Foot and Ankle Institute" class="h-7 md:h-8 object-contain opacity-60 hover:opacity-100 transition-opacity" style="filter: invert(1);" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         MARQUEE — Industries
+         ════════════════════════════════════════ -->
+    <section class="bg-stone-50 border-y border-stone-200 py-5 overflow-hidden" aria-label="Industries served">
+      <div class="flex items-center gap-6 mb-0">
+        <div class="marquee-track select-none" aria-hidden="true">
+          {[...marqueeItems, ...marqueeItems].map(item => (
+            <span class="inline-flex items-center gap-3 px-8 text-sm text-stone-500 font-medium whitespace-nowrap">
+              <span class="w-1 h-1 rounded-full bg-teal shrink-0"></span>
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -264,98 +577,422 @@ const industries = [
     <!-- ════════════════════════════════════════
          HOW IT WORKS
          ════════════════════════════════════════ -->
-    <section id="how" class="py-24 bg-white" aria-labelledby="how-heading">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="how" class="py-20 bg-stone-50" aria-labelledby="how-heading">
+      <div class="max-w-7xl mx-auto px-6">
 
-        <div class="mb-16">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">How It Works</p>
-          <h2 id="how-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
-            Three steps. Zero missed opportunities.
+        <div class="text-center mb-12">
+          <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4">How It Works</p>
+          <h2 id="how-heading" class="font-heading text-heading text-stone-900 font-bold max-w-xl mx-auto mb-5">
+            Three ways Synq keeps you covered
           </h2>
-          <p class="mt-4 text-slate-500 max-w-md">
-            Synq sits between your customers and your calendar — capturing every inquiry and sending it straight to you.
+          <p class="text-stone-500 max-w-md mx-auto leading-relaxed font-sans text-[0.95rem]">
+            Whether they chat, call, or get sent to voicemail — every inquiry gets a response
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-          <!-- Connecting rule on desktop -->
-          <div class="hidden md:block absolute top-8 left-[calc(16.666%+1.5rem)] right-[calc(16.666%+1.5rem)] h-px bg-slate-200" aria-hidden="true"></div>
+        <div class="space-y-0 divide-y divide-stone-200">
 
-          {[
-            {
-              n: '1',
-              heading: 'Customer reaches out',
-              body: 'A customer calls, texts, or visits your website — at any hour, on any day.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
-            },
-            {
-              n: '2',
-              heading: 'Synq responds instantly',
-              body: 'Your AI front desk greets them via chat, SMS, or voice and gathers what they need.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-            },
-            {
-              n: '3',
-              heading: 'You get the booking',
-              body: 'The request or booking is captured and delivered to you — ready to confirm.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
-            },
-          ].map(step => (
+          <!-- ── ROW 1: Website Chatbot ── -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12">
             <div>
-              <div class="relative mb-6">
-                <div class="w-16 h-16 rounded-full bg-teal-faint border border-teal-light flex items-center justify-center text-teal mb-1" set:html={step.icon}></div>
-                <span class="absolute -top-1 -right-1 md:right-auto md:left-12 w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold font-heading flex items-center justify-center">{step.n}</span>
-              </div>
-              <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">{step.heading}</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">{step.body}</p>
+              <p class="text-teal text-[10px] font-semibold tracking-[0.16em] uppercase mb-4 font-sans">Website Chatbot</p>
+              <h3 class="font-heading font-bold text-stone-900 text-heading mb-4">Convert visitors the moment they land</h3>
+              <p class="text-stone-500 leading-relaxed font-sans mb-6">An AI assistant trained on your business — live on your website 24/7. Answers questions, collects lead details, and notifies you in real time</p>
+              <ul class="space-y-2.5">
+                {['Captures name, email & inquiry details', 'Answers FAQs around the clock', 'Delivers every lead straight to your inbox'].map(f => (
+                  <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                    <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
 
+            <!-- Chat mockup — generic browser with embedded chat -->
+            <div class="flex justify-center">
+              <div class="w-[280px] bg-white rounded-2xl overflow-hidden border border-stone-200 flex flex-col" style="box-shadow:0 8px 40px rgba(0,0,0,.08);">
+                <!-- Browser chrome -->
+                <div class="bg-stone-100 px-3 py-2 flex items-center gap-1.5 border-b border-stone-200">
+                  <span class="w-2 h-2 rounded-full bg-stone-300" aria-hidden="true"></span>
+                  <span class="w-2 h-2 rounded-full bg-stone-300" aria-hidden="true"></span>
+                  <span class="w-2 h-2 rounded-full bg-stone-300" aria-hidden="true"></span>
+                  <div class="flex-1 mx-2 bg-white rounded-full h-4 flex items-center px-2">
+                    <span class="text-stone-400 text-[8px] font-sans">yourbusiness.com</span>
+                  </div>
+                </div>
+                <!-- "Website" background area -->
+                <div class="relative bg-stone-50 flex-1" style="min-height:330px;">
+                  <!-- Faux website content -->
+                  <div class="px-4 pt-4 pb-2">
+                    <div class="w-16 h-2 bg-stone-200 rounded-full mb-3" aria-hidden="true"></div>
+                    <div class="w-full h-1.5 bg-stone-200 rounded-full mb-1.5" aria-hidden="true"></div>
+                    <div class="w-3/4 h-1.5 bg-stone-200 rounded-full mb-1.5" aria-hidden="true"></div>
+                    <div class="w-5/6 h-1.5 bg-stone-200 rounded-full mb-4" aria-hidden="true"></div>
+                    <div class="w-full h-16 bg-stone-200 rounded-lg mb-3" aria-hidden="true"></div>
+                    <div class="w-full h-1.5 bg-stone-200 rounded-full mb-1.5" aria-hidden="true"></div>
+                    <div class="w-2/3 h-1.5 bg-stone-200 rounded-full" aria-hidden="true"></div>
+                  </div>
+
+                  <!-- Chat popup overlay — bottom right of "browser" -->
+                  <div class="absolute bottom-3 right-3 left-3">
+                    <div class="bg-white rounded-xl border border-stone-200 overflow-hidden" style="box-shadow:0 4px 20px rgba(0,0,0,.10);">
+                      <!-- Chat header -->
+                      <div class="bg-teal px-3 py-2 flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <span class="text-white text-[10px] font-semibold font-sans">AI Assistant</span>
+                        <span class="ml-auto w-1.5 h-1.5 rounded-full bg-green-300" aria-hidden="true"></span>
+                      </div>
+                      <!-- Messages -->
+                      <div class="p-2.5 space-y-2 bg-white" aria-live="polite" aria-label="Chat demo">
+                        <div class="hiw-chat-msg flex gap-1.5 items-start">
+                          <div class="w-4 h-4 rounded-full bg-teal flex-shrink-0 mt-0.5" aria-hidden="true"></div>
+                          <div class="bg-stone-100 text-stone-700 text-[10px] px-2.5 py-1.5 rounded-lg rounded-tl-sm leading-snug font-sans">Hi! How can I help you today?</div>
+                        </div>
+                        <div class="hiw-chat-msg flex justify-end">
+                          <div class="bg-teal text-white text-[10px] px-2.5 py-1.5 rounded-lg rounded-tr-sm leading-snug font-sans">Do you take new patients?</div>
+                        </div>
+                        <div class="hiw-chat-msg flex gap-1.5 items-start">
+                          <div class="w-4 h-4 rounded-full bg-teal flex-shrink-0 mt-0.5" aria-hidden="true"></div>
+                          <div class="bg-stone-100 text-stone-700 text-[10px] px-2.5 py-1.5 rounded-lg rounded-tl-sm leading-snug font-sans">Yes! Can I get your name and email?</div>
+                        </div>
+                        <div class="hiw-chat-msg flex justify-end">
+                          <div class="bg-teal text-white text-[10px] px-2.5 py-1.5 rounded-lg rounded-tr-sm leading-snug font-sans">Alex — checkup please</div>
+                        </div>
+                        <div class="hiw-chat-msg flex gap-1.5 items-start">
+                          <div class="w-4 h-4 rounded-full bg-teal flex-shrink-0 mt-0.5" aria-hidden="true"></div>
+                          <div class="bg-stone-100 text-stone-700 text-[10px] px-2.5 py-1.5 rounded-lg rounded-tl-sm leading-snug font-sans">Got it! Our team will reach out shortly. ✓</div>
+                        </div>
+                      </div>
+                      <!-- Input bar -->
+                      <div class="border-t border-stone-100 px-2.5 py-1.5 flex items-center gap-1.5 bg-white" aria-hidden="true">
+                        <span class="text-[9px] text-stone-300 flex-1 font-sans">Type a message…</span>
+                        <div class="w-5 h-5 rounded-full bg-teal flex items-center justify-center flex-shrink-0">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ── ROW 2: AI Voice Assistant ── -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12">
+            <!-- Voice mockup — left on desktop -->
+            <div class="flex justify-center order-2 lg:order-1">
+              <!-- Inbox email summary — what the business owner actually receives -->
+              <div class="w-72 bg-white rounded-2xl overflow-hidden border border-stone-200" style="box-shadow:0 8px 40px rgba(0,0,0,.08);" aria-label="Call summary email demo">
+                <!-- Email client header -->
+                <div class="px-4 pt-4 pb-3 flex items-center gap-2 border-b border-stone-100">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#a8a29e" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span class="text-stone-400 text-[10px] font-sans flex-1">Inbox</span>
+                  <span class="bg-teal/10 text-teal text-[9px] font-semibold font-sans px-2 py-0.5 rounded-full">1 new</span>
+                </div>
+
+                <!-- Email item in list -->
+                <div class="hiw-voice-summary px-4 py-3 border-b border-stone-100 flex items-start gap-3 bg-stone-50/50">
+                  <div class="w-8 h-8 rounded-full bg-teal flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-0.5">
+                      <p class="text-stone-800 text-[11px] font-semibold font-sans">SynqAI</p>
+                      <p class="text-stone-400 text-[9px] font-sans shrink-0">just now</p>
+                    </div>
+                    <p class="text-stone-500 text-[10px] font-sans">New call summary — after hours</p>
+                  </div>
+                </div>
+
+                <!-- Open email body -->
+                <div class="px-4 pt-3 pb-4">
+                  <p class="text-stone-400 text-[9px] font-sans uppercase tracking-widest mb-3">Call details</p>
+                  <div class="space-y-3">
+                    <div class="hiw-voice-msg">
+                      <p class="text-stone-400 text-[9px] font-sans mb-0.5">Caller</p>
+                      <p class="text-stone-800 text-[11px] font-sans font-medium">Sarah M. &nbsp;·&nbsp; +1 (780) 555-0142</p>
+                    </div>
+                    <div class="hiw-voice-msg border-t border-stone-100 pt-3">
+                      <p class="text-stone-400 text-[9px] font-sans mb-0.5">Reason for call</p>
+                      <p class="text-stone-800 text-[11px] font-sans font-medium">Book a consultation</p>
+                    </div>
+                    <div class="hiw-voice-msg border-t border-stone-100 pt-3">
+                      <p class="text-stone-400 text-[9px] font-sans mb-0.5">Best time to reach</p>
+                      <p class="text-stone-800 text-[11px] font-sans font-medium">Afternoons preferred</p>
+                    </div>
+                    <div class="hiw-voice-msg border-t border-stone-100 pt-3 flex items-center gap-2">
+                      <div class="w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center shrink-0" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <p class="text-teal text-[10px] font-semibold font-sans">Delivered while you were away</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+              <p class="text-teal text-[10px] font-semibold tracking-[0.16em] uppercase mb-4 font-sans">AI Voice Assistant</p>
+              <h3 class="font-heading font-bold text-stone-900 text-heading mb-4">Your AI answers every after-hours call</h3>
+              <p class="text-stone-500 leading-relaxed font-sans mb-6">No more missed calls going to voicemail. Synq picks up, greets the caller, collects their details, and sends you a full summary — even at 2am</p>
+              <ul class="space-y-2.5">
+                {['Answers calls outside business hours', 'Collects name, number & reason for call', 'Sends a call summary straight to your inbox'].map(f => (
+                  <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                    <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+
+          <!-- ── ROW 3: Missed-Call SMS ── -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12">
+            <div>
+              <p class="text-teal text-[10px] font-semibold tracking-[0.16em] uppercase mb-4 font-sans">Missed-Call SMS</p>
+              <h3 class="font-heading font-bold text-stone-900 text-heading mb-4">Every missed call gets an instant follow-up</h3>
+              <p class="text-stone-500 leading-relaxed font-sans mb-6">The moment a call slips through, Synq texts the caller automatically — keeping the conversation alive before they think to call a competitor</p>
+              <ul class="space-y-2.5">
+                {['Auto-texts missed callers within seconds', 'Collects name, number & intent via SMS', 'Delivers the full lead straight to your inbox'].map(f => (
+                  <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                    <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- SMS scene: phone ← connector → dashboard card -->
+            <div class="flex justify-center">
+              <div class="flex items-center gap-0" data-sms-scene aria-label="Animation: phone calls business, call is missed, business sends SMS back">
+
+                <!-- ═══ CUSTOMER PHONE ═══ -->
+                <div class="relative w-[8rem] shrink-0" style="height:250px;">
+                  <div class="absolute inset-0 bg-stone-300 rounded-[20px]" style="box-shadow:0 6px 30px rgba(0,0,0,.12);">
+                    <!-- Side buttons -->
+                    <div class="absolute -left-[3px] top-[32px] w-[3px] h-[10px] rounded-l bg-stone-400"></div>
+                    <div class="absolute -left-[3px] top-[48px] w-[3px] h-[10px] rounded-l bg-stone-400"></div>
+                    <div class="absolute -right-[3px] top-[38px] w-[3px] h-[14px] rounded-r bg-stone-400"></div>
+                    <!-- Screen area -->
+                    <div class="absolute top-[6px] left-[6px] right-[6px] bottom-[6px] rounded-[15px] overflow-hidden bg-white">
+                      <!-- Notch -->
+                      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[40px] h-[8px] bg-stone-300 rounded-b-lg z-10"></div>
+                      <!-- Home bar -->
+                      <div class="absolute bottom-[4px] left-1/2 -translate-x-1/2 w-[32px] h-[3px] bg-stone-300 rounded-full z-10"></div>
+
+                      <!-- Screen: CALLING -->
+                      <div class="hiw-sms-screen active" data-sms-phone="calling">
+                        <div class="absolute inset-0 bg-teal/[0.06] flex flex-col items-center justify-center px-3">
+                          <p class="text-stone-400 text-[9px] font-sans mb-5">Metro Auto Service</p>
+                          <div class="relative mb-5">
+                            <div class="w-12 h-12 rounded-full bg-teal/15 flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#0d9488" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="absolute inset-0 w-12 h-12 rounded-full border-2 border-teal/30 hiw-sms-pulse"></div>
+                          </div>
+                          <p class="text-stone-800 text-[11px] font-semibold font-sans">Calling&hellip;</p>
+                        </div>
+                      </div>
+
+                      <!-- Screen: MISSED -->
+                      <div class="hiw-sms-screen" data-sms-phone="missed">
+                        <div class="absolute inset-0 bg-red-50 flex flex-col items-center justify-center px-3">
+                          <p class="text-stone-400 text-[9px] font-sans mb-5">Metro Auto Service</p>
+                          <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+                          </div>
+                          <p class="text-red-500 text-[11px] font-semibold font-sans">No Answer</p>
+                        </div>
+                      </div>
+
+                      <!-- Screen: SMS RECEIVED -->
+                      <div class="hiw-sms-screen" data-sms-phone="sms">
+                        <div class="absolute inset-0 bg-stone-50 flex flex-col pt-4 px-1.5">
+                          <!-- Notification banner -->
+                          <div class="bg-teal rounded-lg px-2.5 py-2.5">
+                            <div class="flex items-center gap-1.5 mb-1.5">
+                              <div class="w-3.5 h-3.5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                              </div>
+                              <span class="text-white text-[7px] font-bold font-sans tracking-wide">SYNQAI</span>
+                              <span class="ml-auto text-white/50 text-[6px] font-sans">now</span>
+                            </div>
+                            <p class="text-white text-[8px] font-sans leading-snug">Hey! Sorry we missed your call. How can we help?</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ═══ ANIMATED CONNECTOR ═══ -->
+                <div class="relative w-16 sm:w-24 flex-shrink-0" style="height:4px;" data-sms-connector>
+                  <div class="hiw-sms-connector-line absolute inset-0 rounded-full bg-teal/25" data-sms-line></div>
+                  <div class="hiw-sms-dot bg-teal animate-ltr" data-sms-dot="0" style="animation-delay:0s;"></div>
+                  <div class="hiw-sms-dot bg-teal animate-ltr" data-sms-dot="1" style="animation-delay:0.5s;"></div>
+                  <div class="hiw-sms-dot bg-teal animate-ltr" data-sms-dot="2" style="animation-delay:1.0s;"></div>
+                  <!-- X badge in center -->
+                  <div class="hiw-sms-xbadge absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10" data-sms-xbadge>
+                    <div class="w-7 h-7 rounded-full bg-red-500 flex items-center justify-center" style="box-shadow:0 2px 8px rgba(239,68,68,.4);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ═══ SYNQAI DASHBOARD CARD ═══ -->
+                <div class="relative w-52 shrink-0" style="min-height:250px;">
+                  <div class="bg-white rounded-2xl overflow-hidden h-full border border-stone-200" style="box-shadow:0 8px 40px rgba(0,0,0,.08);">
+                    <!-- Card header -->
+                    <div class="px-4 pt-4 pb-3 flex items-center gap-2 border-b border-stone-100">
+                      <div class="w-5 h-5 rounded-full bg-teal flex items-center justify-center shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      </div>
+                      <span class="text-stone-800 text-[11px] font-semibold font-sans">SynqAI</span>
+                      <span class="ml-auto text-stone-400 text-[9px] font-sans" data-sms-dash-time>just now</span>
+                    </div>
+
+                    <!-- Dashboard content area -->
+                    <div class="relative" style="min-height:160px;">
+
+                      <!-- State: INCOMING CALL -->
+                      <div class="hiw-sms-screen active p-4" data-sms-dash="calling">
+                        <div class="flex items-center gap-2 mb-4">
+                          <div class="w-2 h-2 rounded-full bg-teal hiw-sms-pulse"></div>
+                          <span class="text-teal text-[10px] font-semibold font-sans uppercase tracking-wider">Incoming Call</span>
+                        </div>
+                        <div class="space-y-3">
+                          <div class="hiw-sms-field" data-sms-dash-field="0">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Caller</p>
+                            <p class="text-stone-800 text-[11px] font-sans font-medium">+1 (416) 555-0198</p>
+                          </div>
+                          <div class="hiw-sms-field border-t border-stone-100 pt-3" data-sms-dash-field="1">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Status</p>
+                            <p class="text-teal text-[11px] font-sans font-medium">Ringing&hellip;</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- State: MISSED CALL -->
+                      <div class="hiw-sms-screen p-4" data-sms-dash="missed">
+                        <div class="flex items-center gap-2 mb-4">
+                          <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                          <span class="text-red-500 text-[10px] font-semibold font-sans uppercase tracking-wider">Missed Call</span>
+                        </div>
+                        <div class="space-y-3">
+                          <div class="hiw-sms-field" data-sms-dash-field="2">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Caller</p>
+                            <p class="text-stone-800 text-[11px] font-sans font-medium">+1 (416) 555-0198</p>
+                          </div>
+                          <div class="hiw-sms-field border-t border-stone-100 pt-3" data-sms-dash-field="3">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Result</p>
+                            <p class="text-red-500 text-[11px] font-sans font-medium">No answer — call dropped</p>
+                          </div>
+                          <div class="hiw-sms-field border-t border-stone-100 pt-3" data-sms-dash-field="4">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Action</p>
+                            <p class="text-stone-500 text-[11px] font-sans">Triggering auto-SMS&hellip;</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- State: AUTO-SMS SENT -->
+                      <div class="hiw-sms-screen p-4" data-sms-dash="sms">
+                        <div class="flex items-center gap-2 mb-4">
+                          <div class="w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                          </div>
+                          <span class="text-teal text-[10px] font-semibold font-sans uppercase tracking-wider">SMS Sent</span>
+                        </div>
+                        <div class="space-y-3">
+                          <div class="hiw-sms-field" data-sms-dash-field="5">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Sent to</p>
+                            <p class="text-stone-800 text-[11px] font-sans font-medium">+1 (416) 555-0198</p>
+                          </div>
+                          <div class="hiw-sms-field border-t border-stone-100 pt-3" data-sms-dash-field="6">
+                            <p class="text-stone-400 text-[9px] font-sans mb-0.5">Message</p>
+                            <p class="text-stone-800 text-[11px] font-sans font-medium leading-snug">"Hey! Sorry we missed your call. How can we help?"</p>
+                          </div>
+                          <div class="hiw-sms-field border-t border-stone-100 pt-3 flex items-center gap-2" data-sms-dash-field="7">
+                            <div class="w-4 h-4 rounded-full bg-teal/15 flex items-center justify-center shrink-0">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <p class="text-teal text-[10px] font-semibold font-sans">Delivered</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
 
     <!-- ════════════════════════════════════════
-         WHAT SYNQ HANDLES (Channels)
+         WHAT YOU GAIN — before / after
          ════════════════════════════════════════ -->
-    <section class="py-24 bg-slate-50 border-t border-slate-100" aria-labelledby="channels-heading">
+    <section id="outcomes" class="py-20 bg-stone-50 border-t border-stone-200" aria-labelledby="outcomes-heading">
       <div class="max-w-6xl mx-auto px-6">
 
-        <div class="mb-16">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">What Synq Handles</p>
-          <h2 id="channels-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
-            Every channel. Every inquiry. Covered.
+        <div class="text-center mb-12">
+          <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4">What You Gain</p>
+          <h2 id="outcomes-heading" class="font-heading text-heading text-stone-900 font-bold max-w-xl mx-auto mb-5">
+            See what changes when Synq steps in
           </h2>
-          <p class="mt-4 text-slate-500 max-w-md">
-            From missed calls to website visitors, Synq ensures no potential customer slips through the cracks.
+          <p class="text-stone-500 max-w-md mx-auto leading-relaxed font-sans text-[0.95rem]">
+            Every line on the left is revenue you're leaving on the table. Every line on the right is Synq closing the gap
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              heading: 'Missed Call Recovery',
-              body: 'If you miss a call, Synq immediately follows up via text — capturing customer intent and next steps before they call a competitor.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 4.07A10.7 10.7 0 0 0 4.81 4c-3.15 1.67-5 5.39-5 9 0 .84.27 1.6.72 2.19"/><path d="M10.88 21.83a9.9 9.9 0 0 0 3.12-.89"/><path d="M22 17.82A10.16 10.16 0 0 1 19 20.5"/><path d="M14 3.65A10.04 10.04 0 0 0 12 3c-2.67 0-5.1 1.04-6.9 2.74"/></svg>`,
-            },
-            {
-              heading: '24/7 Response Coverage',
-              body: 'Answer inquiries even when you\'re unavailable. After hours, on weekends, during busy periods — every opportunity gets handled.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-            },
-            {
-              heading: 'Website Conversion',
-              body: 'Engage website visitors in real time with an AI assistant trained on your business. Turn traffic into actual customers, automatically.',
-              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
-            },
-          ].map(ch => (
-            <div class="bg-white border border-slate-200 rounded-lg p-7">
-              <div class="w-10 h-10 rounded-lg bg-teal-faint flex items-center justify-center text-teal mb-5" set:html={ch.icon}></div>
-              <h3 class="font-heading font-bold text-slate-900 mb-3">{ch.heading}</h3>
-              <p class="text-slate-500 text-sm leading-relaxed">{ch.body}</p>
+        <!-- Column headers -->
+        <div class="hidden sm:grid grid-cols-2 gap-6 mb-2 px-2">
+          <p class="text-stone-400 text-xs font-semibold uppercase tracking-wider font-sans">Without Synq</p>
+          <p class="text-teal text-xs font-semibold uppercase tracking-wider font-sans">With Synq</p>
+        </div>
+
+        <div class="space-y-0 divide-y divide-stone-200 bg-white rounded-xl border border-stone-200 overflow-hidden" data-compare-list>
+          {comparisons.map((c, i) => (
+            <div class="compare-row grid grid-cols-1 sm:grid-cols-2" style={`transition-delay: ${i * 120}ms;`}>
+              <!-- Without -->
+              <div class="px-6 py-5 sm:border-r border-stone-100 bg-red-50/40">
+                <p class="sm:hidden text-stone-400 text-[9px] font-semibold uppercase tracking-wider font-sans mb-1.5">Without Synq</p>
+                <div class="flex items-start gap-3">
+                  <div class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </div>
+                  <p class="compare-strike text-stone-500 text-sm font-sans leading-relaxed">{c.without}</p>
+                </div>
+              </div>
+              <!-- With -->
+              <div class="px-6 py-5 bg-teal/[0.03]">
+                <p class="sm:hidden text-teal text-[9px] font-semibold uppercase tracking-wider font-sans mb-1.5">With Synq</p>
+                <div class="compare-with flex items-start gap-3">
+                  <div class="w-5 h-5 rounded-full bg-teal/15 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <p class="text-stone-800 text-sm font-sans font-medium leading-relaxed">{c.with}</p>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
+            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
+          >
+            Contact Sales
+          </a>
         </div>
 
       </div>
@@ -365,28 +1002,28 @@ const industries = [
     <!-- ════════════════════════════════════════
          BUILT FOR
          ════════════════════════════════════════ -->
-    <section class="py-24 bg-white border-t border-slate-100" aria-labelledby="built-for-heading">
-      <div class="max-w-6xl mx-auto px-6">
+    <section id="built-for" class="py-20 bg-stone-100 border-t border-stone-200" aria-labelledby="built-for-heading">
+      <div class="max-w-7xl mx-auto px-6">
 
-        <div class="mb-16">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">Built For</p>
-          <h2 id="built-for-heading" class="font-heading text-heading text-slate-900 font-bold max-w-xl">
-            Any service business that relies on inbound inquiries.
+        <div class="mb-12 text-center">
+          <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4">Built For</p>
+          <h2 id="built-for-heading" class="font-heading text-heading text-stone-900 font-bold max-w-xl mx-auto mb-5">
+            Any service business that relies on inbound inquiries
           </h2>
-          <p class="mt-4 text-slate-500 max-w-md">
-            If customers call, text, or visit your website to book or ask questions, Synq was built for you.
+          <p class="text-stone-500 max-w-md mx-auto leading-relaxed font-sans text-[0.95rem]">
+            If customers call, text, or visit your website to book or ask questions, Synq was built for you
           </p>
         </div>
 
-        <div data-industry-carousel class="max-w-4xl">
+        <div data-industry-carousel class="max-w-5xl mx-auto">
           <div class="flex items-center justify-between gap-4 mb-6">
             <button
               type="button"
               data-prev
-              class="inline-flex items-center justify-center border border-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded hover:border-slate-500 transition-colors"
+              class="inline-flex items-center justify-center border border-stone-300 text-stone-700 text-sm font-medium px-4 py-2 rounded-sm hover:border-stone-500 transition-colors font-sans"
               aria-label="Previous industry"
             >
-              Prev
+              ← Prev
             </button>
             <div class="flex items-center gap-2" role="tablist" aria-label="Industry slides">
               {industries.map((_, idx) => (
@@ -394,7 +1031,7 @@ const industries = [
                   type="button"
                   data-dot
                   data-index={idx}
-                  class:list={['w-2.5 h-2.5 rounded-full transition-colors', idx === 0 ? 'bg-teal' : 'bg-slate-300']}
+                  class:list={['h-1.5 rounded-full transition-all duration-300', idx === 0 ? 'bg-teal w-5' : 'bg-stone-300 w-1.5']}
                   aria-label={`Go to industry ${idx + 1}`}
                   aria-current={idx === 0 ? 'true' : 'false'}
                 ></button>
@@ -403,29 +1040,35 @@ const industries = [
             <button
               type="button"
               data-next
-              class="inline-flex items-center justify-center border border-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded hover:border-slate-500 transition-colors"
+              class="inline-flex items-center justify-center border border-stone-300 text-stone-700 text-sm font-medium px-4 py-2 rounded-sm hover:border-stone-500 transition-colors font-sans"
               aria-label="Next industry"
             >
-              Next
+              Next →
             </button>
           </div>
 
-          <div class="border border-slate-200 rounded-lg p-8 bg-slate-50">
+          <div class="border border-stone-200 rounded-xl overflow-hidden bg-stone-50">
             {industries.map((industry, idx) => (
               <article data-slide class:list={[idx === 0 ? 'block' : 'hidden']}>
-                <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-2">Industry</p>
-                <h3 class="font-heading text-2xl font-bold text-slate-900 mb-3">{industry.label}</h3>
-                <p class="text-slate-600 mb-6">{industry.summary}</p>
-
-                <h4 class="font-heading font-semibold text-slate-900 mb-3">Common use cases</h4>
-                <ul class="space-y-3">
-                  {industry.useCases.map(useCase => (
-                    <li class="flex gap-3 text-sm text-slate-600">
-                      <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                      {useCase}
-                    </li>
-                  ))}
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                  <div class="aspect-[4/3] md:aspect-auto">
+                    <img src={industry.image} alt={industry.label} class="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <div class="p-8 md:p-10 flex flex-col justify-center">
+                    <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-3">Industry Focus</p>
+                    <h3 class="font-heading text-2xl font-bold text-stone-900 mb-3">{industry.label}</h3>
+                    <p class="text-stone-600 mb-6 text-base font-sans">{industry.summary}</p>
+                    <h4 class="text-stone-400 text-xs font-semibold tracking-[0.14em] uppercase mb-4 font-sans">Common use cases</h4>
+                    <ul class="space-y-3">
+                      {industry.useCases.map(useCase => (
+                        <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                          <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                          {useCase}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
@@ -438,248 +1081,99 @@ const industries = [
       (() => {
         const root = document.querySelector('[data-industry-carousel]');
         if (!root) return;
-
         const slides = Array.from(root.querySelectorAll('[data-slide]'));
         const dots = Array.from(root.querySelectorAll('[data-dot]'));
         const prev = root.querySelector('[data-prev]');
         const next = root.querySelector('[data-next]');
-        let currentIndex = 0;
-
+        let cur = 0;
         const update = () => {
-          slides.forEach((slide, index) => {
-            const isActive = index === currentIndex;
-            slide.classList.toggle('hidden', !isActive);
-            slide.classList.toggle('block', isActive);
-            slide.setAttribute('aria-hidden', String(!isActive));
-          });
-
-          dots.forEach((dot, index) => {
-            const isActive = index === currentIndex;
-            dot.setAttribute('aria-current', isActive ? 'true' : 'false');
-            dot.classList.toggle('bg-teal', isActive);
-            dot.classList.toggle('bg-slate-300', !isActive);
+          slides.forEach((s, i) => { s.classList.toggle('hidden', i !== cur); s.classList.toggle('block', i === cur); });
+          dots.forEach((d, i) => {
+            d.setAttribute('aria-current', i === cur ? 'true' : 'false');
+            d.classList.toggle('bg-teal', i === cur); d.classList.toggle('w-5', i === cur);
+            d.classList.toggle('bg-stone-300', i !== cur); d.classList.toggle('w-1.5', i !== cur);
           });
         };
-
-        prev?.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-          update();
-        });
-
-        next?.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % slides.length;
-          update();
-        });
-
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            currentIndex = index;
-            update();
-          });
-        });
-
+        prev?.addEventListener('click', () => { cur = (cur - 1 + slides.length) % slides.length; update(); resetAuto(); });
+        next?.addEventListener('click', () => { cur = (cur + 1) % slides.length; update(); resetAuto(); });
+        dots.forEach((d, i) => d.addEventListener('click', () => { cur = i; update(); resetAuto(); }));
         update();
+
+        let autoTimer = setInterval(() => { cur = (cur + 1) % slides.length; update(); }, 4000);
+        function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => { cur = (cur + 1) % slides.length; update(); }, 4000); }
       })();
     </script>
 
 
-    <!-- ════════════════════════════════════════
-         OUTCOMES (What You Gain)
-         ════════════════════════════════════════ -->
-    <section id="outcomes" class="py-24 bg-slate-50 border-t border-slate-100" aria-labelledby="outcomes-heading">
-      <div class="max-w-6xl mx-auto px-6">
 
-        <div class="mb-16">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">What You Gain</p>
-          <h2 id="outcomes-heading" class="font-heading text-heading text-slate-900 font-bold max-w-lg">
-            Real outcomes. Measurable impact.
+    <!-- ════════════════════════════════════════
+         SOLUTIONS
+         ════════════════════════════════════════ -->
+    <section id="solutions" class="py-20 bg-stone-50 border-t border-stone-200" aria-labelledby="solutions-heading">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <div class="mb-12">
+          <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4">Solutions</p>
+          <h2 id="solutions-heading" class="font-heading text-heading text-stone-900 font-bold max-w-xl mb-5">
+            An AI front desk built around your business
           </h2>
-          <p class="mt-4 text-slate-500 max-w-md">
-            Synq doesn't add complexity — it removes the gaps where revenue was already slipping away.
+          <p class="text-stone-500 max-w-lg leading-relaxed font-sans text-[0.95rem]">
+            Start with the channel that matters most, then expand as you grow. Every solution is configured specifically for your business
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0 divide-y divide-slate-200">
-          {[
-            {
-              heading: 'Fewer Missed Opportunities',
-              body: 'Every call, message, and website visit gets a response — so you stop losing customers to voicemail and slow reply times.',
-            },
-            {
-              heading: 'Faster Response Times',
-              body: 'Customers hear back in under a minute, any time of day. Speed of response is often the difference between a booking and a lost lead.',
-            },
-            {
-              heading: 'More Bookings Without Hiring',
-              body: "Scale your front desk capacity without adding headcount. Synq handles the volume your team can't.",
-            },
-            {
-              heading: 'Reduced Operational Overhead',
-              body: 'Less time managing inbound chaos. Your team focuses on delivering great work — not fielding every inquiry manually.',
-            },
-          ].map(o => (
-            <div class="py-7 flex gap-5">
-              <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <div>
-                <h3 class="font-heading font-bold text-slate-900 mb-1">{o.heading}</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">{o.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
 
-      </div>
-    </section>
-
-
-    <!-- ════════════════════════════════════════
-         PRICING
-         ════════════════════════════════════════ -->
-    <section id="pricing" class="py-24 bg-white border-t border-slate-100" aria-labelledby="pricing-heading">
-      <div class="max-w-6xl mx-auto px-6">
-
-        <!-- Section header -->
-        <div class="mb-16">
-          <p class="text-teal text-sm font-semibold tracking-widest uppercase mb-3">Pricing</p>
-          <h2 id="pricing-heading" class="font-heading text-heading text-slate-900 font-bold max-w-xl">
-            Flexible AI Front Desk Pricing
-          </h2>
-          <p class="mt-4 text-slate-500 max-w-lg">
-            Start with the chatbot your business needs, then add missed-call SMS or AI voice support when you're ready.
-          </p>
-          <!-- Currency toggle -->
-          <div class="flex items-center gap-2 mt-5">
-            <span class="text-slate-500 text-sm">Show prices in:</span>
-            <button
-              data-currency-btn="cad"
-              class="text-xs font-semibold px-3 py-1.5 rounded border bg-slate-900 text-white border-slate-900 transition-colors"
-            >CAD</button>
-            <button
-              data-currency-btn="usd"
-              class="text-xs font-semibold px-3 py-1.5 rounded border border-slate-300 text-slate-600 hover:border-slate-500 transition-colors"
-            >USD</button>
-          </div>
-        </div>
-
-
-        <!-- ── Subsection 1: Website Chatbots ─────────────────────── -->
-        <div class="mb-16">
+        <!-- Website Chatbots -->
+        <div class="mb-12">
           <div class="flex items-center gap-4 mb-8">
-            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Website Chatbots</h3>
-            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+            <h3 class="font-heading font-bold text-stone-900 text-base whitespace-nowrap tracking-tight">Website Chatbots</h3>
+            <div class="flex-1 h-px bg-stone-200" aria-hidden="true"></div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {chatbots.map(plan => (
               <div
                 class:list={[
-                  'rounded-lg border flex flex-col relative',
-                  plan.popular
-                    ? 'border-teal shadow-lg shadow-teal/10'
-                    : 'border-slate-200',
+                  'rounded-xl border flex flex-col relative transition-all duration-300 hover:shadow-xl bg-white',
+                  plan.badge
+                    ? 'border-teal/40 shadow-lg shadow-teal/8'
+                    : 'border-stone-200 hover:border-stone-300',
                 ]}
               >
-                {plan.popular && (
+                {plan.badge && (
                   <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
-                      Most Popular
+                    <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full tracking-wide">
+                      {plan.badge}
                     </span>
                   </div>
                 )}
 
-                <div class:list={['p-7 border-b', plan.popular ? 'border-teal/20' : 'border-slate-100']}>
-                  <p class="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-1">{plan.eyebrow}</p>
-                  <h4 class="font-heading font-bold text-slate-900 text-lg mb-3">{plan.name}</h4>
-                  <p class="text-slate-500 text-sm mb-3">{plan.description}</p>
-                  <p class="text-slate-400 text-xs italic mb-5">{plan.idealFor}</p>
-                  <p class="font-heading font-extrabold text-slate-900 text-4xl">
-                    <span data-price-cad>{plan.priceCad}</span>
-                    <span data-price-usd class="hidden">{plan.priceUsd}</span>
-                  </p>
+                <div class:list={['p-8 border-b', plan.badge ? 'border-teal/10' : 'border-stone-100']}>
+                  <p class="text-stone-400 text-[10px] font-semibold tracking-[0.16em] uppercase mb-2 font-sans">{plan.eyebrow}</p>
+                  <h4 class="font-heading font-bold text-stone-900 text-2xl mb-3 tracking-tight">{plan.name}</h4>
+                  <p class="text-stone-500 text-sm leading-relaxed mb-2 font-sans">{plan.description}</p>
+                  <p class="text-stone-400 text-xs font-sans">Best for: {plan.idealFor}</p>
                 </div>
 
-                <div class="p-7 flex flex-col flex-1">
+                <div class="p-8 flex flex-col flex-1">
                   <ul class="space-y-3 mb-8 flex-1">
                     {plan.features.map(f => (
-                      <li class="flex gap-3 text-sm">
-                        {f.positive === true ? (
-                          <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        ) : f.positive === 'limit' ? (
-                          <svg class="text-amber-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                        ) : (
-                          <svg class="text-slate-300 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                        )}
-                        <span class:list={[
-                          f.positive === false ? 'text-slate-400' : f.positive === 'limit' ? 'text-slate-500' : 'text-slate-600'
-                        ]}>{f.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
-                    class:list={[
-                      'block text-center font-semibold text-sm py-3 px-6 rounded transition-colors',
-                      plan.popular
-                        ? 'bg-teal hover:bg-teal-dark text-white'
-                        : 'border border-slate-300 hover:border-slate-500 text-slate-900',
-                    ]}
-                  >
-                    Contact Our Team
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-
-        <!-- ── Subsection 2: Communication Add-ons ────────────────── -->
-        <div class="mb-16">
-          <div class="flex items-center gap-4 mb-3">
-            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Communication Add-ons</h3>
-            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
-          </div>
-          <p class="text-slate-500 text-sm mb-8">Available standalone or at a discount when added to any chatbot plan.</p>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {addons.map(addon => (
-              <div class="rounded-lg border border-slate-200 bg-slate-50 flex flex-col">
-                <div class="p-7 border-b border-slate-200">
-                  <p class="text-slate-400 text-xs font-semibold tracking-widest uppercase mb-1">{addon.eyebrow}</p>
-                  <h4 class="font-heading font-bold text-slate-900 text-lg mb-3">{addon.name}</h4>
-                  <p class="text-slate-500 text-sm mb-3">{addon.description}</p>
-                  <p class="text-slate-400 text-xs italic mb-5">{addon.idealFor}</p>
-                  <!-- Standalone price (crossed out) -->
-                  <p class="text-slate-400 text-sm mb-1">
-                    Standalone: <span class="line-through">
-                      <span data-price-cad>{addon.standaloneCad}</span><span data-price-usd class="hidden">{addon.standaloneUsd}</span>
-                    </span>
-                  </p>
-                  <!-- Add-on price -->
-                  <p class="font-heading font-extrabold text-teal text-4xl">
-                    <span data-price-cad>{addon.addonCad}</span>
-                    <span data-price-usd class="hidden">{addon.addonUsd}</span>
-                  </p>
-                  <p class="text-teal text-xs font-semibold mt-1">
-                    <span data-price-cad>{addon.savingsCad}</span>
-                    <span data-price-usd class="hidden">{addon.savingsUsd}</span>
-                  </p>
-                </div>
-
-                <div class="p-7 flex flex-col flex-1">
-                  <ul class="space-y-3 mb-8 flex-1">
-                    {addon.features.map(f => (
-                      <li class="flex gap-3 text-sm text-slate-600">
-                        <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                        <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                         {f}
                       </li>
                     ))}
                   </ul>
                   <a
-                    href={`mailto:alichaudhry.software@gmail.com?subject=${encodeURIComponent(`Interest in ${addon.name}`)}`}
-                    class="block text-center font-semibold text-sm py-3 px-6 rounded transition-colors border border-slate-300 hover:border-slate-500 text-slate-900"
+                    href={`mailto:${CONTACT}?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
+                    class:list={[
+                      'block text-center font-semibold text-sm py-3 px-6 rounded-lg transition-colors font-sans',
+                      plan.badge
+                        ? 'bg-teal hover:bg-teal-dark text-white'
+                        : 'border border-stone-200 hover:border-stone-400 text-stone-900',
+                    ]}
                   >
-                    Add to Package
+                    Contact Sales
                   </a>
                 </div>
               </div>
@@ -688,41 +1182,39 @@ const industries = [
         </div>
 
 
-        <!-- ── Example Bundles ─────────────────────────────────────── -->
-        <div class="mb-16">
+        <!-- Add-ons -->
+        <div class="mb-12">
           <div class="flex items-center gap-4 mb-3">
-            <h3 class="font-heading font-bold text-slate-900 text-lg whitespace-nowrap">Example Packages</h3>
-            <div class="flex-1 h-px bg-slate-200" aria-hidden="true"></div>
+            <h3 class="font-heading font-bold text-stone-900 text-base whitespace-nowrap tracking-tight">Communication Add-ons</h3>
+            <div class="flex-1 h-px bg-stone-200" aria-hidden="true"></div>
           </div>
-          <p class="text-slate-500 text-sm mb-8">Combine the features your business needs. These are common setups.</p>
+          <p class="text-stone-500 text-sm mb-8 font-sans">Available standalone or bundled with any chatbot plan</p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {bundles.map(bundle => (
-              <div class="rounded-lg border border-slate-200 bg-white p-6 flex flex-col gap-4 relative">
-                {bundle.popular && (
-                  <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span class="bg-teal text-white text-xs font-semibold font-heading px-3 py-1 rounded-full">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <div>
-                  <h4 class="font-heading font-bold text-slate-900 mb-2">{bundle.name}</h4>
-                  <ul class="space-y-1">
-                    {bundle.includes.map(item => (
-                      <li class="flex items-center gap-2 text-sm text-slate-600">
-                        <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>
-                        {item}
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {addons.map(addon => (
+              <div class="rounded-xl border border-stone-200 bg-stone-100 flex flex-col hover:shadow-lg hover:border-stone-300 transition-all duration-300">
+                <div class="p-8 border-b border-stone-200">
+                  <p class="text-stone-400 text-[10px] font-semibold tracking-[0.16em] uppercase mb-2 font-sans">{addon.eyebrow}</p>
+                  <h4 class="font-heading font-bold text-stone-900 text-2xl mb-3 tracking-tight">{addon.name}</h4>
+                  <p class="text-stone-500 text-sm leading-relaxed mb-2 font-sans">{addon.description}</p>
+                  <p class="text-stone-400 text-xs font-sans">Best for: {addon.idealFor}</p>
+                </div>
+
+                <div class="p-8 flex flex-col flex-1">
+                  <ul class="space-y-3 mb-8 flex-1">
+                    {addon.features.map(f => (
+                      <li class="flex gap-3 text-sm text-stone-600 font-sans">
+                        <svg class="text-teal shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        {f}
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 flex items-end justify-between gap-4">
-                  <p class="font-heading font-extrabold text-slate-900 text-2xl">
-                    <span data-price-cad>{bundle.priceCad}</span>
-                    <span data-price-usd class="hidden">{bundle.priceUsd}</span>
-                  </p>
-                  <p class="text-slate-500 text-xs text-right max-w-[160px]">{bundle.bestFor}</p>
+                  <a
+                    href={`mailto:${CONTACT}?subject=${encodeURIComponent(`Interest in ${addon.name}`)}`}
+                    class="block text-center font-semibold text-sm py-3 px-6 rounded-lg transition-colors border border-stone-200 hover:border-stone-400 text-stone-900 font-sans"
+                  >
+                    Contact Sales
+                  </a>
                 </div>
               </div>
             ))}
@@ -730,87 +1222,57 @@ const industries = [
         </div>
 
 
-        <!-- ── Build your own ──────────────────────────────────────── -->
-        <div class="rounded-lg border border-slate-200 p-8 text-center mb-10">
-          <h3 class="font-heading font-bold text-slate-900 text-xl mb-2">Need a custom setup?</h3>
-          <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">
-            Build your own SynqAI package by combining the chatbot, missed-call SMS, and AI voice features your business needs.
+        <!-- Custom setup -->
+        <div class="rounded-xl border border-stone-200 bg-stone-100 p-12 text-center">
+          <p class="text-teal text-xs font-semibold tracking-[0.16em] uppercase mb-4">Custom Solutions</p>
+          <h3 class="font-heading font-bold text-stone-900 text-2xl mb-3 tracking-tight">Need a tailored setup?</h3>
+          <p class="text-stone-500 text-sm max-w-md mx-auto mb-8 leading-relaxed font-sans">
+            Every business is different. We'll design a solution that fits your team, your workflows, and your customers
           </p>
           <a
-            href="mailto:alichaudhry.software@gmail.com?subject=Custom%20SynqAI%20Package"
-            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
+            href={`mailto:${CONTACT}?subject=Custom%20SynqAI%20Solution`}
+            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
           >
-            Contact Our Team
+            Talk to Our Team
           </a>
         </div>
-
-
-        <!-- Setup fee note -->
-        <p class="text-center text-slate-400 text-xs max-w-xl mx-auto">
-          One-time setup fee applies. Final setup cost depends on website size, call routing needs, AI training requirements, and customization level.
-        </p>
 
       </div>
     </section>
 
-    <script is:inline>
-      (() => {
-        const cadBtn = document.querySelector('[data-currency-btn="cad"]');
-        const usdBtn = document.querySelector('[data-currency-btn="usd"]');
-        const cadEls = document.querySelectorAll('[data-price-cad]');
-        const usdEls = document.querySelectorAll('[data-price-usd]');
-
-        const activeOn  = ['bg-slate-900', 'text-white', 'border-slate-900'];
-        const activeOff = ['border-slate-300', 'text-slate-600'];
-
-        function setCAD() {
-          cadEls.forEach(el => el.classList.remove('hidden'));
-          usdEls.forEach(el => el.classList.add('hidden'));
-          cadBtn.classList.add(...activeOn);
-          cadBtn.classList.remove(...activeOff);
-          usdBtn.classList.remove(...activeOn);
-          usdBtn.classList.add(...activeOff);
-        }
-
-        function setUSD() {
-          usdEls.forEach(el => el.classList.remove('hidden'));
-          cadEls.forEach(el => el.classList.add('hidden'));
-          usdBtn.classList.add(...activeOn);
-          usdBtn.classList.remove(...activeOff);
-          cadBtn.classList.remove(...activeOn);
-          cadBtn.classList.add(...activeOff);
-        }
-
-        cadBtn?.addEventListener('click', setCAD);
-        usdBtn?.addEventListener('click', setUSD);
-        setCAD();
-      })();
-    </script>
-
 
     <!-- ════════════════════════════════════════
-         FINAL CTA STRIP
+         FINAL CTA
          ════════════════════════════════════════ -->
-    <section class="bg-slate-950 py-24" aria-label="Call to action">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="font-heading font-extrabold text-white text-heading mb-4">
-          Start capturing every inquiry today.
+    <section class="relative dot-grid bg-stone-950 py-32 overflow-hidden" aria-label="Call to action">
+      <div class="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+        <div class="w-[700px] h-[350px] rounded-full bg-teal/[0.06] blur-[120px]"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-6 text-center">
+        <div class="flex items-center justify-center gap-3 mb-8">
+          <span class="w-12 h-px bg-teal/40"></span>
+          <p class="text-teal text-xs font-semibold tracking-[0.18em] uppercase">Get Started</p>
+          <span class="w-12 h-px bg-teal/40"></span>
+        </div>
+        <h2 class="font-heading font-bold text-white text-display mb-5">
+          Start capturing every<br /><span class="rotate-wrap"><span class="rotate-inner rotate-inner-light" aria-hidden="true"><span>inquiry</span><span>call</span><span>booking</span><span>inquiry</span></span></span> today
         </h2>
-        <p class="text-slate-400 mb-10 max-w-md mx-auto">
-          Most businesses go live within 48 hours. No technical setup required on your end.
+        <p class="text-stone-400 mb-10 max-w-sm mx-auto leading-relaxed font-sans">
+          Most businesses go live within 48 hours. No technical setup required on your end
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <a
-            href="#pricing"
-            class="bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
+            href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
+            class="bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-8 py-3.5 rounded-sm transition-colors"
           >
-            View Pricing
+            Contact Sales
           </a>
           <a
-            href="mailto:hello@getsynq.ca"
-            class="border border-slate-600 hover:border-slate-400 text-white font-semibold text-sm px-6 py-3 rounded transition-colors"
+            href="#how"
+            class="border border-white/15 hover:border-white/30 text-white font-semibold text-sm px-8 py-3.5 rounded-sm transition-colors"
           >
-            Talk to Us
+            See How It Works
           </a>
         </div>
       </div>
@@ -819,23 +1281,204 @@ const industries = [
   </main>
 
 
+  <script is:inline>
+    // ── How It Works: animated channel mockups ──
+    (function () {
+      // 1. Chat widget
+      var chatMsgs   = Array.from(document.querySelectorAll('.hiw-chat-msg'));
+      var chatDelays = [200, 1900, 3600, 5300, 7000];
+      var CHAT_LOOP  = 10500;
+      function runChat() {
+        chatMsgs.forEach(function(m) { m.classList.remove('show'); });
+        chatDelays.forEach(function(d, i) {
+          setTimeout(function() { if (chatMsgs[i]) chatMsgs[i].classList.add('show'); }, d);
+        });
+        setTimeout(runChat, CHAT_LOOP);
+      }
+      if (chatMsgs.length) setTimeout(runChat, 300);
+
+      // 2. Voice — inbox email summary
+      var voiceSummary = document.querySelector('.hiw-voice-summary');
+      var voiceMsgs    = Array.from(document.querySelectorAll('.hiw-voice-msg'));
+      var VOICE_LOOP   = 10000;
+      function runVoice() {
+        if (voiceSummary) voiceSummary.classList.remove('show');
+        voiceMsgs.forEach(function(m) { m.classList.remove('show'); });
+        // Email card arrives first, then each field reveals
+        setTimeout(function() { if (voiceSummary) voiceSummary.classList.add('show'); }, 400);
+        var fieldDelays = [1000, 2200, 3400, 4600];
+        fieldDelays.forEach(function(d, i) {
+          setTimeout(function() { if (voiceMsgs[i]) voiceMsgs[i].classList.add('show'); }, d);
+        });
+        setTimeout(runVoice, VOICE_LOOP);
+      }
+      if (voiceSummary) setTimeout(runVoice, 500);
+
+      // 3. Missed-call SMS scene
+      var scene = document.querySelector('[data-sms-scene]');
+      if (scene) {
+        var phoneScreens = {
+          calling: scene.querySelector('[data-sms-phone="calling"]'),
+          missed:  scene.querySelector('[data-sms-phone="missed"]'),
+          sms:     scene.querySelector('[data-sms-phone="sms"]'),
+        };
+        var dashScreens = {
+          calling: scene.querySelector('[data-sms-dash="calling"]'),
+          missed:  scene.querySelector('[data-sms-dash="missed"]'),
+          sms:     scene.querySelector('[data-sms-dash="sms"]'),
+        };
+        var dots     = Array.from(scene.querySelectorAll('[data-sms-dot]'));
+        var line     = scene.querySelector('[data-sms-line]');
+        var xbadge   = scene.querySelector('[data-sms-xbadge]');
+        var fields   = Array.from(scene.querySelectorAll('[data-sms-dash-field]'));
+        var SMS_LOOP = 10000;
+
+        function setPhase(phase) {
+          // Phone screens
+          Object.keys(phoneScreens).forEach(function(k) {
+            if (phoneScreens[k]) phoneScreens[k].classList.toggle('active', k === phase);
+          });
+          // Dashboard screens
+          Object.keys(dashScreens).forEach(function(k) {
+            if (dashScreens[k]) dashScreens[k].classList.toggle('active', k === phase);
+          });
+          // Connector
+          if (phase === 'calling') {
+            line.style.backgroundColor = '';
+            line.classList.remove('bg-red-500/40');
+            line.classList.add('bg-teal/25');
+            dots.forEach(function(d) {
+              d.classList.remove('animate-rtl', 'bg-red-500');
+              d.classList.add('animate-ltr', 'bg-teal');
+            });
+            xbadge.classList.remove('show');
+          } else if (phase === 'missed') {
+            line.classList.remove('bg-teal/25');
+            line.classList.add('bg-red-500/40');
+            dots.forEach(function(d) {
+              d.classList.remove('animate-ltr', 'animate-rtl');
+              d.style.opacity = '0';
+            });
+            xbadge.classList.add('show');
+          } else {
+            line.classList.remove('bg-red-500/40');
+            line.classList.add('bg-teal/25');
+            xbadge.classList.remove('show');
+            dots.forEach(function(d) {
+              d.style.opacity = '';
+              d.classList.remove('animate-ltr', 'bg-red-500');
+              d.classList.add('animate-rtl', 'bg-teal');
+            });
+          }
+        }
+
+        function showFields(startIdx, count) {
+          for (var i = startIdx; i < startIdx + count; i++) {
+            (function(idx, delay) {
+              setTimeout(function() {
+                var f = scene.querySelector('[data-sms-dash-field="' + idx + '"]');
+                if (f) f.classList.add('show');
+              }, delay);
+            })(i, (i - startIdx) * 600);
+          }
+        }
+
+        function hideAllFields() {
+          fields.forEach(function(f) { f.classList.remove('show'); });
+        }
+
+        function runSMS() {
+          hideAllFields();
+          // Phase 1: Calling (0-3s)
+          setPhase('calling');
+          showFields(0, 2);
+
+          // Phase 2: Missed (3s-5.5s)
+          setTimeout(function() {
+            setPhase('missed');
+            showFields(2, 3);
+          }, 3000);
+
+          // Phase 3: SMS sent (5.5s-8.5s)
+          setTimeout(function() {
+            setPhase('sms');
+            showFields(5, 3);
+          }, 5500);
+
+          setTimeout(runSMS, SMS_LOOP);
+        }
+
+        setTimeout(runSMS, 600);
+      }
+    })();
+  </script>
+
+  <script is:inline>
+    // Count-up animation for the $20K+ stat
+    (() => {
+      const statItems = document.querySelectorAll('.stat-item');
+      // The 4th stat item (index 3) is $20K+
+      const dollarStat = statItems[3]?.querySelector('p:first-child');
+      if (!dollarStat) return;
+
+      function countUp(el, end, durationMs) {
+        const startTime = performance.now();
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / durationMs, 1);
+          // Ease-out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const val = Math.floor(eased * end);
+          el.textContent = '$' + val + 'K+';
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      // Start the counter after the stat's fade-in delay (1.2s)
+      setTimeout(() => countUp(dollarStat, 20, 1200), 1200);
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const list = document.querySelector('[data-compare-list]');
+      if (!list) return;
+      const rows = Array.from(list.querySelectorAll('.compare-row'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          rows.forEach((row, i) => {
+            setTimeout(() => row.classList.add('visible'), i * 200);
+          });
+          observer.disconnect();
+        });
+      }, { threshold: 0.1 });
+
+      observer.observe(list);
+    })();
+  </script>
+
   <!-- ════════════════════════════════════════
        FOOTER
        ════════════════════════════════════════ -->
-  <footer class="bg-slate-950 border-t border-slate-800 py-10">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+  <footer class="bg-stone-950 border-t border-white/5 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
 
       <a href="#">
         <img src="/logo.png?v=20260509b" alt="SynqAI" class="h-8 w-auto" />
       </a>
 
-      <nav class="flex flex-wrap justify-center gap-6 text-sm" aria-label="Footer navigation">
-        <a href="#how"                    class="text-slate-500 hover:text-white transition-colors">How It Works</a>
-        <a href="#pricing"                class="text-slate-500 hover:text-white transition-colors">Pricing</a>
-        <a href="mailto:hello@getsynq.ca" class="text-slate-500 hover:text-white transition-colors">Contact</a>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm font-sans" aria-label="Footer navigation">
+        <a href="#how"                                                    class="text-stone-400 hover:text-white transition-colors">How It Works</a>
+        <a href="#outcomes"                                               class="text-stone-400 hover:text-white transition-colors">What You Gain</a>
+        <a href="#built-for"                                              class="text-stone-400 hover:text-white transition-colors">Built For</a>
+        <a href="#solutions"                                              class="text-stone-400 hover:text-white transition-colors">Solutions</a>
+        <a href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}  class="text-stone-400 hover:text-white transition-colors">Contact Sales</a>
       </nav>
 
-      <p class="text-slate-600 text-xs">© 2026 SynqAI. All rights reserved.</p>
+      <p class="text-stone-500 text-xs font-sans">© 2026 SynqAI. All rights reserved.</p>
 
     </div>
   </footer>
