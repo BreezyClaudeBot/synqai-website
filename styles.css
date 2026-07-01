@@ -215,6 +215,12 @@ input, textarea, select { font-family: inherit; }
   flex-shrink: 0;
 }
 
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
 .logo-icon {
   display: flex;
   flex-direction: column;
@@ -1826,6 +1832,12 @@ input, textarea, select { font-family: inherit; }
 
 .logo-item:hover {
   opacity: 0.65;
+}
+
+.logo-wall-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .logo-item-mark {
