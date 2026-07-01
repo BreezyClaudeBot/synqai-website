@@ -166,7 +166,7 @@ const CONTACT = 'ali@getsynq.ca';
       animation: rotate-words 8s cubic-bezier(.65,0,.35,1) infinite;
     }
     .rotate-inner span {
-      color: #0d9488;
+      color: #2dd4bf;
       display: block;
       height: 1.12em;
       line-height: 1.12;
@@ -197,9 +197,9 @@ const CONTACT = 'ali@getsynq.ca';
     }
     .marquee-track:hover { animation-play-state: paused; }
 
-    /* ── Hero headline — constrained so "Never Miss Another" stays one line ── */
+    /* ── Hero headline ── */
     .hero-h1 {
-      font-size: clamp(2rem, 3vw, 2.75rem) !important;
+      font-size: clamp(2rem, 4vw, 3.25rem) !important;
       line-height: 1.06 !important;
       letter-spacing: -0.04em !important;
     }
@@ -407,6 +407,101 @@ const CONTACT = 'ali@getsynq.ca';
     @keyframes stat-in {
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* ── Editorial buttons ── */
+    .btn-ed {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+      transition: gap 0.25s cubic-bezier(.34,1.56,.64,1);
+    }
+    .btn-ed:hover { gap: 16px; }
+    .btn-ed .ed-arrow {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
+    }
+    .btn-ed:hover .ed-arrow { transform: translateX(4px); }
+    .btn-ed-light { color: #fff; }
+    .btn-ed-light .ed-arrow { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn-ed-light:hover .ed-arrow { background: rgba(255,255,255,0.2); }
+    .btn-ed-teal { color: #0d9488; }
+    .btn-ed-teal .ed-arrow { background: #0d9488; color: #fff; }
+    .btn-ed-teal:hover .ed-arrow { background: #0f766e; }
+    .btn-ed-dark { color: #1c1917; }
+    .btn-ed-dark .ed-arrow { background: #1c1917; color: #fff; }
+    .btn-ed-dark:hover .ed-arrow { background: #44403c; }
+    .btn-ed-sm { font-size: 10px; gap: 8px; }
+    .btn-ed-sm .ed-arrow { width: 24px; height: 24px; font-size: 11px; }
+
+    /* ── Stat icon animations ── */
+    .clock-min  { transform-origin: 12px 12px; animation: clock-min 3s linear infinite; }
+    .clock-hour { transform-origin: 12px 12px; animation: clock-hour 36s linear infinite; }
+    @keyframes clock-min  { to { transform: rotate(360deg); } }
+    @keyframes clock-hour { to { transform: rotate(360deg); } }
+
+    .msg-sent {
+      opacity: 0;
+      transform: translateY(4px) scale(.95);
+      animation: msg-appear 2.5s ease infinite;
+    }
+    .msg-ago { opacity: 0; animation: ago-appear 2.5s ease infinite; }
+    @keyframes msg-appear {
+      0%,10%   { opacity:0; transform:translateY(4px) scale(.95); }
+      25%,75%  { opacity:1; transform:translateY(0) scale(1); }
+      90%,100% { opacity:0; transform:translateY(0) scale(1); }
+    }
+    @keyframes ago-appear {
+      0%,30%   { opacity:0; }
+      50%,75%  { opacity:1; }
+      90%,100% { opacity:0; }
+    }
+
+    .person-l { animation: gather-l 3s ease-in-out infinite; }
+    .person-r { animation: gather-r 3s ease-in-out infinite; }
+    .person-c { animation: person-pulse 3s ease-in-out infinite; }
+    @keyframes gather-l {
+      0%,15%  { transform: translateX(-14px); opacity:0; }
+      45%,70% { transform: translateX(0); opacity:1; }
+      90%,100%{ transform: translateX(-14px); opacity:0; }
+    }
+    @keyframes gather-r {
+      0%,25%  { transform: translateX(14px); opacity:0; }
+      55%,70% { transform: translateX(0); opacity:1; }
+      90%,100%{ transform: translateX(14px); opacity:0; }
+    }
+    @keyframes person-pulse {
+      0%,40%  { transform: scale(1); }
+      55%     { transform: scale(1.15); }
+      70%,100%{ transform: scale(1); }
+    }
+
+    .bill { animation: bill-fall 2.2s ease-in infinite; opacity:0; }
+    .bill:nth-child(1) { animation-delay: 0s; }
+    .bill:nth-child(2) { animation-delay: 0.7s; }
+    .bill:nth-child(3) { animation-delay: 1.4s; }
+    @keyframes bill-fall {
+      0%   { transform: translateY(-8px) rotate(-6deg); opacity:0; }
+      12%  { opacity:1; }
+      50%  { transform: translateY(14px) rotate(4deg); opacity:1; }
+      85%  { opacity:1; }
+      100% { transform: translateY(32px) rotate(-3deg); opacity:0; }
+    }
   </style>
 
 
@@ -427,11 +522,8 @@ const CONTACT = 'ali@getsynq.ca';
         <a href="#solutions" class="text-sm text-stone-400 hover:text-white transition-colors">Solutions</a>
       </nav>
 
-      <a
-        href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
-        class="bg-teal hover:bg-teal-dark text-white text-sm font-semibold px-5 py-2.5 rounded-sm transition-colors"
-      >
-        Contact Sales
+      <a href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`} class="btn-ed btn-ed-light btn-ed-sm">
+        Contact Sales <span class="ed-arrow">→</span>
       </a>
     </div>
   </header>
@@ -443,99 +535,143 @@ const CONTACT = 'ali@getsynq.ca';
          HERO
          ════════════════════════════════════════ -->
     <section
-      class="relative dot-grid-light bg-stone-50 min-h-[85vh] flex items-center overflow-hidden pt-16 pb-12"
+      class="relative dot-grid bg-stone-950 overflow-hidden pt-20 pb-0"
       aria-label="Hero"
     >
 
       <!-- Ambient glow -->
-      <div class="pointer-events-none absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-teal/[0.10] blur-[160px]" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-teal/[0.06] blur-[140px]" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-teal/[0.07] blur-[120px]" aria-hidden="true"></div>
 
-      <div class="relative max-w-7xl mx-auto px-6 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="relative max-w-4xl mx-auto px-6 w-full text-center">
 
-          <!-- Left: Copy -->
-          <div>
-            <!-- Eyebrow -->
-            <div class="flex items-center gap-3 mb-8">
-              <span class="w-px h-7 bg-teal/70"></span>
-              <p class="text-teal text-xs font-semibold tracking-[0.18em] uppercase">AI-Powered Front Desk</p>
+        <!-- Eyebrow -->
+        <div class="flex items-center justify-center gap-4 mb-5">
+          <span class="w-8 h-px bg-teal/50"></span>
+          <p class="text-teal text-xs font-semibold tracking-[0.18em] uppercase font-sans">AI-Powered Front Desk</p>
+          <span class="w-8 h-px bg-teal/50"></span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-h1 font-heading text-white font-bold mb-4">
+          Never Miss Another <span class="rotate-wrap" aria-label="Customer">
+            <span class="rotate-inner" aria-hidden="true">
+              <span>Customer</span>
+              <span>Call</span>
+              <span>Booking</span>
+              <span>Customer</span>
+            </span>
+          </span>
+        </h1>
+
+        <p class="text-stone-400 text-base leading-relaxed mb-6 font-sans max-w-xl mx-auto">
+          Synq automatically handles calls, texts, and website messages — capturing every opportunity without adding headcount
+        </p>
+
+        <div class="flex flex-col items-center gap-4 mb-6">
+          <a href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`} class="btn-ed btn-ed-teal">
+            Talk to Sales <span class="ed-arrow">→</span>
+          </a>
+          <a href="#how" class="flex flex-col items-center gap-2 group" aria-label="See how it works">
+            <span class="text-[9px] font-semibold tracking-[0.16em] uppercase text-white/30 font-sans group-hover:text-white/60 transition-colors">How It Works</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/30 group-hover:text-white/60 transition-all group-hover:translate-y-1 duration-300"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+        </div>
+
+        <!-- Chatbot demo video -->
+        <div class="flex justify-center">
+          <div class="rounded-t-2xl bg-stone-800/60 border border-white/10 border-b-0 p-3 pb-0">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="rounded-t-xl"
+              style="width: 300px; height: auto; display: block;"
+            >
+              <source src="/chatbot-demo.mov" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats row -->
+      <div class="relative max-w-7xl mx-auto px-6 mt-6">
+        <div class="grid grid-cols-2 sm:grid-cols-4 border-t border-teal/20">
+
+          <!-- 24/7 — ticking clock -->
+          <div class="stat-item px-6 py-4 text-center">
+            <div class="flex justify-center mb-3" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="1.5" fill="#2dd4bf"/>
+                <line x1="12" y1="3" x2="12" y2="5" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="12" y1="19" x2="12" y2="21" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="3" y1="12" x2="5" y2="12" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="19" y1="12" x2="21" y2="12" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linecap="round"/>
+                <line class="clock-hour" x1="12" y1="12" x2="12" y2="7.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                <line class="clock-min" x1="12" y1="12" x2="12" y2="5.5" stroke="#2dd4bf" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
             </div>
-
-            <!-- Headline -->
-            <h1 class="hero-h1 font-heading text-stone-900 font-bold mb-6">
-              Never Miss Another <span class="rotate-wrap" aria-label="Customer">
-                <span class="rotate-inner" aria-hidden="true">
-                  <span>Customer</span>
-                  <span>Call</span>
-                  <span>Booking</span>
-                  <span>Customer</span>
-                </span>
-              </span>
-            </h1>
-
-            <p class="text-stone-500 text-lg leading-relaxed mb-9 font-sans">
-              Synq automatically handles calls, texts, and website messages — capturing every opportunity without adding headcount
-            </p>
-
-            <div class="flex flex-wrap gap-4 mb-14">
-              <a
-                href="#how"
-                class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
-              >
-                See How It Works
-              </a>
-              <a
-                href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
-                class="inline-block border border-stone-300 hover:border-teal/60 hover:text-teal text-stone-700 font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
-              >
-                Talk to Sales
-              </a>
-            </div>
-
-            <!-- Stats row -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 border border-stone-200 rounded-xl overflow-hidden bg-white">
-              {[
-                { value: '24/7',   label: 'Coverage' },
-                { value: '<1 min', label: 'Response' },
-                { value: '3×',     label: 'More Leads' },
-                { value: '$20K+',  label: 'Staffing Saved' },
-              ].map((s, i) => (
-                <div class:list={['stat-item px-5 py-4', i > 0 ? 'border-l border-stone-200' : '']}>
-                  <p class="font-heading text-xl font-bold text-stone-900 mb-0.5 tracking-tight">{s.value}</p>
-                  <p class="text-stone-400 text-xs font-sans">{s.label}</p>
-                </div>
-              ))}
-            </div>
+            <p class="font-heading text-2xl font-bold text-white mb-1 tracking-tight">24/7</p>
+            <p class="text-stone-500 text-xs font-sans">Coverage</p>
           </div>
 
-
-          <!-- Right: Live widget iframe -->
-          <div class="hidden lg:flex justify-center items-center relative" aria-hidden="true">
-
-            <!-- Glow behind widget -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div class="w-72 h-72 rounded-full bg-teal/8 blur-[70px]"></div>
+          <!-- <1 min — message sent -->
+          <div class="stat-item px-6 py-4 text-center border-l border-teal/20">
+            <div class="flex flex-col items-center justify-end mb-3 gap-1" style="height:36px;" aria-hidden="true">
+              <div class="flex items-center gap-1 self-start ml-2">
+                <div style="width:28px;height:10px;background:rgba(255,255,255,0.12);border-radius:6px 6px 6px 2px;"></div>
+              </div>
+              <div class="flex items-end gap-1.5 self-end mr-2">
+                <div class="msg-ago" style="font-size:7px;color:rgba(255,255,255,0.35);font-family:sans-serif;white-space:nowrap;">1s ago</div>
+                <div class="msg-sent" style="width:34px;height:10px;background:#0d9488;border-radius:6px 6px 2px 6px;"></div>
+              </div>
             </div>
+            <p class="font-heading text-2xl font-bold text-white mb-1 tracking-tight">&lt;1 min</p>
+            <p class="text-stone-500 text-xs font-sans">Response</p>
+          </div>
 
-            <!-- Chatbot demo video -->
-            <div class="rounded-2xl bg-stone-200/60 border border-stone-300/50 p-3 shadow-xl shadow-stone-400/20">
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                class="rounded-xl"
-                style="width: 390px; height: auto; display: block;"
-              >
-                <source src="/chatbot-demo.mov" type="video/mp4" />
-              </video>
+          <!-- 3× — people gathering -->
+          <div class="stat-item px-6 py-4 text-center border-l border-teal/20">
+            <div class="flex justify-center items-end mb-3 gap-2" style="height:36px;" aria-hidden="true">
+              <div class="person-l flex flex-col items-center gap-0.5">
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);"></div>
+                <div style="width:10px;height:10px;border-radius:3px 3px 0 0;background:rgba(255,255,255,0.25);"></div>
+              </div>
+              <div class="person-c flex flex-col items-center gap-0.5">
+                <div style="width:10px;height:10px;border-radius:50%;background:#2dd4bf;"></div>
+                <div style="width:12px;height:12px;border-radius:3px 3px 0 0;background:#0d9488;"></div>
+              </div>
+              <div class="person-r flex flex-col items-center gap-0.5">
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);"></div>
+                <div style="width:10px;height:10px;border-radius:3px 3px 0 0;background:rgba(255,255,255,0.25);"></div>
+              </div>
             </div>
+            <p class="font-heading text-2xl font-bold text-white mb-1 tracking-tight">3×</p>
+            <p class="text-stone-500 text-xs font-sans">More Leads</p>
+          </div>
 
+          <!-- $20K+ — bills falling -->
+          <div class="stat-item px-6 py-4 text-center border-l border-teal/20">
+            <div class="flex justify-center gap-3 mb-3 relative overflow-hidden" style="height:36px;" aria-hidden="true">
+              <div class="bill absolute" style="left:18%;">
+                <svg width="28" height="14" viewBox="0 0 28 14"><rect x="0.5" y="0.5" width="27" height="13" rx="2" fill="#0d9488" fill-opacity="0.18" stroke="#2dd4bf" stroke-width="1"/><text x="14" y="10" text-anchor="middle" font-size="7" fill="#2dd4bf" font-weight="700" font-family="sans-serif">$20</text></svg>
+              </div>
+              <div class="bill absolute" style="left:38%;">
+                <svg width="28" height="14" viewBox="0 0 28 14"><rect x="0.5" y="0.5" width="27" height="13" rx="2" fill="#0d9488" fill-opacity="0.18" stroke="#2dd4bf" stroke-width="1"/><text x="14" y="10" text-anchor="middle" font-size="7" fill="#2dd4bf" font-weight="700" font-family="sans-serif">$20</text></svg>
+              </div>
+              <div class="bill absolute" style="left:58%;">
+                <svg width="28" height="14" viewBox="0 0 28 14"><rect x="0.5" y="0.5" width="27" height="13" rx="2" fill="#0d9488" fill-opacity="0.18" stroke="#2dd4bf" stroke-width="1"/><text x="14" y="10" text-anchor="middle" font-size="7" fill="#2dd4bf" font-weight="700" font-family="sans-serif">$20</text></svg>
+              </div>
+            </div>
+            <p class="font-heading text-2xl font-bold text-white mb-1 tracking-tight">$20K+</p>
+            <p class="text-stone-500 text-xs font-sans">Staffing Saved</p>
           </div>
 
         </div>
       </div>
+
     </section>
 
 
@@ -987,11 +1123,8 @@ const CONTACT = 'ali@getsynq.ca';
         </div>
 
         <div class="text-center mt-12">
-          <a
-            href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
-            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
-          >
-            Contact Sales
+          <a href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`} class="btn-ed btn-ed-teal">
+            Contact Sales <span class="ed-arrow">→</span>
           </a>
         </div>
 
@@ -1166,14 +1299,9 @@ const CONTACT = 'ali@getsynq.ca';
                   </ul>
                   <a
                     href={`mailto:${CONTACT}?subject=${encodeURIComponent(`Interest in ${plan.name}`)}`}
-                    class:list={[
-                      'block text-center font-semibold text-sm py-3 px-6 rounded-lg transition-colors font-sans',
-                      plan.badge
-                        ? 'bg-teal hover:bg-teal-dark text-white'
-                        : 'border border-stone-200 hover:border-stone-400 text-stone-900',
-                    ]}
+                    class:list={['btn-ed', plan.badge ? 'btn-ed-teal' : 'btn-ed-dark']}
                   >
-                    Contact Sales
+                    Contact Sales <span class="ed-arrow">→</span>
                   </a>
                 </div>
               </div>
@@ -1211,9 +1339,9 @@ const CONTACT = 'ali@getsynq.ca';
                   </ul>
                   <a
                     href={`mailto:${CONTACT}?subject=${encodeURIComponent(`Interest in ${addon.name}`)}`}
-                    class="block text-center font-semibold text-sm py-3 px-6 rounded-lg transition-colors border border-stone-200 hover:border-stone-400 text-stone-900 font-sans"
+                    class="btn-ed btn-ed-dark"
                   >
-                    Contact Sales
+                    Contact Sales <span class="ed-arrow">→</span>
                   </a>
                 </div>
               </div>
@@ -1229,11 +1357,8 @@ const CONTACT = 'ali@getsynq.ca';
           <p class="text-stone-500 text-sm max-w-md mx-auto mb-8 leading-relaxed font-sans">
             Every business is different. We'll design a solution that fits your team, your workflows, and your customers
           </p>
-          <a
-            href={`mailto:${CONTACT}?subject=Custom%20SynqAI%20Solution`}
-            class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-7 py-3.5 rounded-sm transition-colors"
-          >
-            Talk to Our Team
+          <a href={`mailto:${CONTACT}?subject=Custom%20SynqAI%20Solution`} class="btn-ed btn-ed-teal">
+            Talk to Our Team <span class="ed-arrow">→</span>
           </a>
         </div>
 
@@ -1261,18 +1386,12 @@ const CONTACT = 'ali@getsynq.ca';
         <p class="text-stone-400 mb-10 max-w-sm mx-auto leading-relaxed font-sans">
           Most businesses go live within 48 hours. No technical setup required on your end
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a
-            href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`}
-            class="bg-teal hover:bg-teal-dark text-white font-semibold text-sm px-8 py-3.5 rounded-sm transition-colors"
-          >
-            Contact Sales
+        <div class="flex flex-wrap justify-center gap-10">
+          <a href={`mailto:${CONTACT}?subject=SynqAI%20Sales%20Inquiry`} class="btn-ed btn-ed-teal">
+            Contact Sales <span class="ed-arrow">→</span>
           </a>
-          <a
-            href="#how"
-            class="border border-white/15 hover:border-white/30 text-white font-semibold text-sm px-8 py-3.5 rounded-sm transition-colors"
-          >
-            See How It Works
+          <a href="#how" class="btn-ed btn-ed-light">
+            See How It Works <span class="ed-arrow">→</span>
           </a>
         </div>
       </div>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="64" viewBox="0 0 300 64">
+  <!-- Icon: 3 stacked bars matching original proportions -->
+  <!-- Top bar: 35% white (ghost) -->
+  <rect x="0" y="2" width="48" height="18" rx="3" fill="rgba(255,255,255,0.35)"/>
+  <!-- Middle bar: light teal -->
+  <rect x="0" y="24" width="48" height="14" rx="3" fill="#2DD4BF"/>
+  <!-- Bottom bar: dark teal -->
+  <rect x="0" y="42" width="48" height="18" rx="3" fill="#0D9488"/>
+
+  <!-- Wordmark: single text with tspan so Synq+AI flow together -->
+  <text x="60" y="48" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="40" letter-spacing="-1.5">
+    <tspan fill="white">Synq</tspan><tspan fill="#2DD4BF">AI</tspan>
+  </text>
+</svg>
