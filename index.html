@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SynqAI builds custom websites and AI-powered communication tools that help service businesses capture more leads and respond faster." />
+  <title>SynqAI — Custom Websites + AI Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       NAVBAR
+  ====================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo" aria-label="SynqAI Home">
+        <div class="logo-icon" aria-hidden="true">
+          <div class="logo-bar logo-bar-top"></div>
+          <div class="logo-bar logo-bar-mid"></div>
+          <div class="logo-bar logo-bar-bot"></div>
+        </div>
+        <span class="logo-wordmark"><span class="synq">Synq</span><span class="ai">AI</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-primary btn-sm">Book a Demo</a>
+      </div>
+
+      <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-nav-link active">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+      <a href="services.html" class="btn btn-secondary">View Services</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ======================================================
+         1. HERO
+    ====================================================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="dot-grid" aria-hidden="true"></div>
+      <div class="hero-inner">
+
+        <!-- Content -->
+        <div class="hero-content">
+          <div class="hero-eyebrow" data-animate>
+            <span class="eyebrow">Make your website more than a brochure</span>
+          </div>
+
+          <h1 class="hero-title" id="hero-heading" data-animate data-delay="100">
+            Websites That<br>
+            <span class="teal">Respond</span>, Capture,<br>and Convert
+          </h1>
+
+          <p class="hero-subtitle" data-animate data-delay="200">
+            SynqAI builds custom websites, AI chatbots, voice assistants, and missed-call SMS systems that help service businesses capture every opportunity.
+          </p>
+
+          <div class="hero-ctas" data-animate data-delay="300">
+            <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+            <a href="services.html" class="btn btn-secondary">View Services</a>
+          </div>
+        </div>
+
+        <!-- Product Mockup -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mockup-wrap">
+
+            <!-- Lead notification -->
+            <div class="mockup-lead">
+              <div class="lead-pulse"></div>
+              <div>
+                <div class="lead-text">New inquiry captured</div>
+                <div class="lead-sub">via website chatbot</div>
+              </div>
+            </div>
+
+            <!-- Browser window -->
+            <div class="mockup-browser">
+              <div class="browser-bar">
+                <span class="bdot bdot-r"></span>
+                <span class="bdot bdot-y"></span>
+                <span class="bdot bdot-g"></span>
+                <div class="burl">getsynq.ca</div>
+              </div>
+              <div class="bcontent">
+                <div class="mbar"></div>
+                <div class="mbar"></div>
+                <div class="mbar"></div>
+                <div class="mcards">
+                  <div class="mcard">
+                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
+                    <div class="mcard-line"></div>
+                    <div class="mcard-line s"></div>
+                  </div>
+                  <div class="mcard">
+                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
+                    <div class="mcard-line"></div>
+                    <div class="mcard-line s"></div>
+                  </div>
+                  <div class="mcard">
+                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
+                    <div class="mcard-line"></div>
+                    <div class="mcard-line s"></div>
+                  </div>
+                  <div class="mcard">
+                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
+                    <div class="mcard-line"></div>
+                    <div class="mcard-line s"></div>
+                  </div>
+                </div>
+                <div class="mbottom">
+                  <div class="mbtn">Get Started</div>
+                  <div class="mbtn-outline">Learn More</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SMS card -->
+            <div class="mockup-sms">
+              <div class="sms-tag">Missed Call SMS</div>
+              <div class="sms-msg">Sorry we missed your call. How can we help?</div>
+              <div class="sms-meta">Just now · Auto-sent</div>
+            </div>
+
+            <!-- Voice card -->
+            <div class="mockup-voice">
+              <div class="voice-tag">AI Voice</div>
+              <div class="voice-status-text">After-hours call handled</div>
+              <span class="voice-badge">Active</span>
+            </div>
+
+            <!-- Chatbot widget -->
+            <div class="mockup-chatbot">
+              <div class="chat-hdr">
+                <div class="chat-avatar">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <div class="chat-name">SynqAI Chat</div>
+                  <div class="chat-status">● Online now</div>
+                </div>
+              </div>
+              <div class="chat-bubble">Hi, how can I help you today?</div>
+              <div class="chat-inp">
+                <span class="chat-inp-placeholder">Type a message...</span>
+                <div class="chat-send">
+                  <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- /Product Mockup -->
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         LOGO WALL
+    ====================================================== -->
+    <section class="logo-wall" aria-label="Clients and industries served">
+      <div class="container">
+        <p class="logo-wall-label">Trusted by service businesses</p>
+        <div class="logo-row">
+
+          <!-- Northside Dental -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="10" height="10" rx="2" fill="currentColor" style="color:#F8FAFC;"/>
+                <rect x="15" y="3" width="10" height="10" rx="2" fill="currentColor" style="color:#F8FAFC; opacity:0.5;"/>
+                <rect x="3" y="15" width="10" height="10" rx="2" fill="currentColor" style="color:#F8FAFC; opacity:0.5;"/>
+                <rect x="15" y="15" width="10" height="10" rx="2" fill="currentColor" style="color:#F8FAFC;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Northside Dental</span>
+          </div>
+
+          <!-- Apex Contracting -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 3L25 24H3L14 3Z" fill="currentColor" style="color:#F8FAFC;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Apex Contracting</span>
+          </div>
+
+          <!-- Greenfield Law -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="2.5" style="color:#F8FAFC;"/>
+                <path d="M14 7v14M7 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#F8FAFC; opacity:0.5;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Greenfield Law</span>
+          </div>
+
+          <!-- Peak Wellness -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 20 L10 10 L16 16 L20 8 L25 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" style="color:#F8FAFC;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Peak Wellness</span>
+          </div>
+
+          <!-- Summit Consulting -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="10" width="22" height="3" rx="1.5" fill="currentColor" style="color:#F8FAFC;"/>
+                <rect x="3" y="15" width="16" height="3" rx="1.5" fill="currentColor" style="color:#F8FAFC; opacity:0.6;"/>
+                <rect x="3" y="20" width="10" height="3" rx="1.5" fill="currentColor" style="color:#F8FAFC; opacity:0.35;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Summit Consulting</span>
+          </div>
+
+          <!-- Radius Health -->
+          <div class="logo-item">
+            <div class="logo-item-mark" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 3C8 3 3 8 3 14s5 11 11 11 11-5 11-11S20 3 14 3z" stroke="currentColor" stroke-width="2.5" fill="none" style="color:#F8FAFC;"/>
+                <path d="M14 3C14 3 20 8 20 14s-6 11-6 11" stroke="currentColor" stroke-width="1.5" fill="none" style="color:#F8FAFC; opacity:0.45;"/>
+              </svg>
+            </div>
+            <span class="logo-item-name">Radius Health</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         2. PROBLEM SECTION
+    ====================================================== -->
+    <section class="split-section alt" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="split-layout">
+
+          <div class="split-left">
+            <span class="eyebrow" data-animate>The Problem</span>
+            <h2 class="split-title" id="problem-heading" data-animate data-delay="100">
+              Most businesses lose leads before they even know it.
+            </h2>
+            <p class="split-body" data-animate data-delay="150">
+              Customers do not wait around. If your website is unclear, your calls go unanswered, or your follow-up is slow, the opportunity usually goes somewhere else.
+            </p>
+          </div>
+
+          <div class="split-right">
+            <div class="split-item" data-animate data-delay="100">
+              <span class="split-num">01</span>
+              <div>
+                <div class="split-item-title">Outdated Website</div>
+                <div class="split-item-body">An old or unclear website makes the business look less credible and gives visitors fewer reasons to reach out.</div>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="150">
+              <span class="split-num" style="color: rgba(20,184,166,0.5);">02</span>
+              <div>
+                <div class="split-item-title">Missed Website Questions</div>
+                <div class="split-item-body">Visitors often have questions before they are ready to call. Without a chatbot or clear capture path, those visitors leave anonymously.</div>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="200">
+              <span class="split-num" style="color: rgba(20,184,166,0.25);">03</span>
+              <div>
+                <div class="split-item-title">Missed Calls</div>
+                <div class="split-item-body">A missed call can turn into a lost customer. Most people will not leave a voicemail or wait for a callback.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         3. SERVICES SECTION
+    ====================================================== -->
+    <section class="split-section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="split-layout">
+
+          <div class="split-left">
+            <span class="eyebrow" data-animate>Services</span>
+            <h2 class="split-title" id="services-heading" data-animate data-delay="100">
+              Built around how customers actually reach you.
+            </h2>
+            <p class="split-body" data-animate data-delay="150">
+              SynqAI combines custom web design with AI-powered communication tools so your business can respond faster across your website, calls, and texts. Use one service or connect the full system.
+            </p>
+            <div class="split-left-cta" data-animate data-delay="200">
+              <a href="services.html" class="btn btn-secondary btn-sm">View All Services</a>
+            </div>
+          </div>
+
+          <div class="split-right">
+            <div class="split-item" data-animate data-delay="100">
+              <span class="split-num">01</span>
+              <div>
+                <div class="split-item-title">Website Chatbot</div>
+                <div class="split-item-body">Add an AI chatbot to your website. It answers common questions, collects contact details, and notifies your team when someone wants help.</div>
+                <a href="services.html#chatbot" class="split-item-link">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="150">
+              <span class="split-num" style="color: rgba(20,184,166,0.55);">02</span>
+              <div>
+                <div class="split-item-title">Custom Web Design</div>
+                <div class="split-item-body">Modern custom-built websites designed for credibility, clarity, and conversion. Built around your services and your customers — not a template.</div>
+                <a href="services.html#webdesign" class="split-item-link">Start a project <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="200">
+              <span class="split-num" style="color: rgba(20,184,166,0.3);">03</span>
+              <div>
+                <div class="split-item-title">AI Voice Assistant</div>
+                <div class="split-item-body">An AI phone assistant that handles after-hours calls, overflow calls, and basic customer questions so fewer opportunities fall through.</div>
+                <a href="services.html#voice" class="split-item-link">Explore voice <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="250">
+              <span class="split-num" style="color: rgba(20,184,166,0.15);">04</span>
+              <div>
+                <div class="split-item-title">Missed-Call Recovery SMS</div>
+                <div class="split-item-body">Automatic SMS follow-up after missed calls, giving your business a second chance to recover the inquiry before the customer moves on.</div>
+                <a href="services.html#sms" class="split-item-link">Recover leads <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         5. HOW IT WORKS
+    ====================================================== -->
+    <section class="process-section" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-animate>How It Works</span>
+          <h2 class="section-title" id="process-heading" data-animate data-delay="100">Simple Setup. Clear Outcome.</h2>
+          <p class="section-subtitle" data-animate data-delay="200">
+            SynqAI handles the design, build, setup, and launch so the system is practical from day one.
+          </p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-animate data-delay="100">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3 class="step-title">Discovery</h3>
+            <p class="step-body">We understand your business, services, customers, current website, and communication gaps.</p>
+          </div>
+          <div class="process-step" data-animate data-delay="200">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3 class="step-title">Build</h3>
+            <p class="step-body">We design your website and configure the chatbot, voice assistant, or missed-call SMS system.</p>
+          </div>
+          <div class="process-step" data-animate data-delay="300">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3 class="step-title">Launch</h3>
+            <p class="step-body">We deploy the website and connect the forms, notifications, call flows, and automations.</p>
+          </div>
+          <div class="process-step" data-animate data-delay="400">
+            <div class="step-num" aria-hidden="true">4</div>
+            <h3 class="step-title">Improve</h3>
+            <p class="step-body">We review how inquiries come in and refine the system so it performs better over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         6. WHAT YOU GAIN
+    ====================================================== -->
+    <section class="split-section alt" aria-labelledby="gain-heading">
+      <div class="container">
+        <div class="split-layout">
+
+          <div class="split-left">
+            <span class="eyebrow" data-animate>What You Gain</span>
+            <h2 class="split-title" id="gain-heading" data-animate data-delay="100">
+              More captured leads.<br>Less manual follow-up.
+            </h2>
+            <p class="split-body" data-animate data-delay="150">
+              SynqAI is built to make your business easier to contact and harder to ignore.
+            </p>
+          </div>
+
+          <div class="split-right">
+            <div class="split-item" data-animate data-delay="100">
+              <span class="split-num">01</span>
+              <div>
+                <div class="split-item-title">More Inquiries Captured</div>
+                <div class="split-item-body">Give website visitors, callers, and prospects more ways to reach you — and make sure none of them slip through.</div>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="150">
+              <span class="split-num" style="color: rgba(20,184,166,0.55);">02</span>
+              <div>
+                <div class="split-item-title">Faster Response</div>
+                <div class="split-item-body">Respond immediately through chatbot, SMS, or voice assistant workflows — before the customer moves on to a competitor.</div>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="200">
+              <span class="split-num" style="color: rgba(20,184,166,0.3);">03</span>
+              <div>
+                <div class="split-item-title">More Professional Presence</div>
+                <div class="split-item-body">Replace an outdated page with a modern website that builds trust before anyone picks up the phone.</div>
+              </div>
+            </div>
+            <div class="split-item" data-animate data-delay="250">
+              <span class="split-num" style="color: rgba(20,184,166,0.15);">04</span>
+              <div>
+                <div class="split-item-title">Less Admin Pressure</div>
+                <div class="split-item-body">Automate repetitive intake and follow-up so your team can focus on real conversations instead of chasing cold leads.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         7. BUILT FOR
+    ====================================================== -->
+    <section class="built-for-section" aria-labelledby="builtfor-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-animate>Built For</span>
+          <h2 class="section-title" id="builtfor-heading" data-animate data-delay="100">Designed for Service-Based Businesses</h2>
+          <p class="section-subtitle" data-animate data-delay="200">
+            SynqAI works best for businesses where missed inquiries, unclear websites, and slow follow-up directly cost money.
+          </p>
+        </div>
+
+        <div class="industry-grid" data-animate data-delay="150">
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Medical Clinics</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Dental Clinics</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Contractors</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Consultants</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Local Service Businesses</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Professional Service Firms</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Repair &amp; Maintenance</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Wellness &amp; Appointment-Based</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Law Firms</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Financial Advisors</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Real Estate Professionals</div>
+          <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Trades &amp; Home Services</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         8. BLOG PREVIEW
+    ====================================================== -->
+    <section class="blog-prev-section" aria-labelledby="blog-prev-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-animate>Insights</span>
+          <h2 class="section-title" id="blog-prev-heading" data-animate data-delay="100">Proof, Updates, and Case Studies</h2>
+          <p class="section-subtitle" data-animate data-delay="200">
+            A place for future case studies, client results, and practical guides on websites, chatbots, missed calls, and automation.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card blog-card" data-animate data-delay="100">
+            <span class="blog-tag coming">Coming Soon</span>
+            <h3 class="blog-card-title">How Website Chatbots Help Capture More Leads</h3>
+            <p class="blog-card-excerpt">A practical breakdown of how chatbots support service businesses by answering common questions and capturing visitor details.</p>
+          </div>
+
+          <div class="card blog-card" data-animate data-delay="200">
+            <span class="blog-tag coming">Coming Soon</span>
+            <h3 class="blog-card-title">Why Missed Calls Cost Service Businesses Money</h3>
+            <p class="blog-card-excerpt">Missed calls are often missed revenue. This article will explain how automatic SMS follow-up helps recover opportunities.</p>
+          </div>
+
+          <div class="card blog-card" data-animate data-delay="300">
+            <span class="blog-tag coming">Coming Soon</span>
+            <h3 class="blog-card-title">Case Study Coming Soon</h3>
+            <p class="blog-card-excerpt">Future client examples will show how SynqAI helps businesses modernize their website and inquiry flow.</p>
+          </div>
+        </div>
+
+        <div class="blog-cta-row" data-animate data-delay="200">
+          <a href="blog.html" class="btn btn-secondary">Visit Blog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         9. FINAL CTA
+    ====================================================== -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-card" data-animate>
+          <h2 class="cta-title" id="cta-heading">
+            Ready to Upgrade How Your<br>Business <span class="teal">Captures Leads?</span>
+          </h2>
+          <p class="cta-subtitle">
+            Launch a custom website with AI-powered tools that answer, capture, and follow up across your website, calls, and texts.
+          </p>
+          <div class="cta-btns">
+            <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+            <a href="contact.html" class="btn btn-secondary">Contact SynqAI</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="logo" aria-label="SynqAI Home">
+            <div class="logo-icon" aria-hidden="true">
+              <div class="logo-bar logo-bar-top"></div>
+              <div class="logo-bar logo-bar-mid"></div>
+              <div class="logo-bar logo-bar-bot"></div>
+            </div>
+            <span class="logo-wordmark"><span class="synq">Synq</span><span class="ai">AI</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            SynqAI builds custom websites and AI-powered communication tools that help businesses capture more leads and respond faster.
+          </p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-icon" aria-label="SynqAI on LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="SynqAI on Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="SynqAI on Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="SynqAI on X (Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-col-title">Quick Links</h3>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="footer-col-title">Services</h3>
+          <ul class="footer-links" role="list">
+            <li><a href="services.html#chatbot" class="footer-link">Website Chatbot</a></li>
+            <li><a href="services.html#webdesign" class="footer-link">Custom Websites</a></li>
+            <li><a href="services.html#voice" class="footer-link">AI Voice Assistant</a></li>
+            <li><a href="services.html#sms" class="footer-link">Missed-Call Recovery SMS</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 SynqAI. All rights reserved.</p>
+        <p class="footer-tagline">Built for service businesses that move fast.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
