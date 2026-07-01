@@ -2460,6 +2460,13 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 768px) {
   :root { --section-padding: 72px 0; }
 
+  /* Revert hero to auto height on mobile — fixed 100vh clips content */
+  .hero {
+    height: auto;
+    max-height: none;
+    min-height: 100svh;
+  }
+
   .hstat-grid { grid-template-columns: repeat(2, 1fr); }
 
   .split-layout {
@@ -2476,7 +2483,11 @@ input, textarea, select { font-family: inherit; }
   .hamburger { display: flex; }
 
   .hero-visual { display: none; }
-  .hero-inner { padding: 56px 24px 64px; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 24px;
+    gap: 0;
+  }
 
   .grid-3,
   .grid-4,
@@ -2502,6 +2513,11 @@ input, textarea, select { font-family: inherit; }
   .hstat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .hstat-card { padding: 16px 12px; }
   .hstat-num { font-size: 22px; }
+
+  .hero-title { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .hero-subtitle { font-size: 1rem; margin-bottom: 24px; }
+  .hero-eyebrow { margin-bottom: 12px; }
+  .hero-stats-bar { padding: 20px 0 24px; }
 
   .hero-ctas,
   .cta-btns { flex-direction: column; align-items: stretch; }
