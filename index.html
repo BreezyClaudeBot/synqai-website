@@ -18,20 +18,20 @@
   ====================================================== -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-inner">
-      <a href="index.html" class="logo" aria-label="SynqAI Home">
+      <a href="/" class="logo" aria-label="SynqAI Home">
         <img src="public/logo.png" alt="SynqAI" class="logo-img" /><span class="logo-wordmark"><span class="synq">Synq</span><span class="ai">AI</span></span>
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
+        <li><a href="/blog/" class="nav-link">Blog</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
 
       <div class="nav-right">
-        <a href="contact.html" class="btn btn-primary btn-sm">Book a Demo</a>
+        <a href="/contact/" class="btn btn-primary btn-sm">Book a Demo</a>
       </div>
 
       <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -44,14 +44,14 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-    <a href="index.html" class="mobile-nav-link active">Home</a>
-    <a href="about.html" class="mobile-nav-link">About</a>
-    <a href="services.html" class="mobile-nav-link">Services</a>
-    <a href="blog.html" class="mobile-nav-link">Blog</a>
-    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="/" class="mobile-nav-link active">Home</a>
+    <a href="/about/" class="mobile-nav-link">About</a>
+    <a href="/services/" class="mobile-nav-link">Services</a>
+    <a href="/blog/" class="mobile-nav-link">Blog</a>
+    <a href="/contact/" class="mobile-nav-link">Contact</a>
     <div class="mobile-cta">
-      <a href="contact.html" class="btn btn-primary">Book a Demo</a>
-      <a href="services.html" class="btn btn-secondary">View Services</a>
+      <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+      <a href="/services/" class="btn btn-secondary">View Services</a>
     </div>
   </div>
 
@@ -72,7 +72,7 @@
 
           <h1 class="hero-title" id="hero-heading" data-animate data-delay="100">
             Websites That<br>
-            <span class="teal">Respond</span>, Capture,<br>and Convert
+            <span class="teal hero-cycle-wrap"><span id="hero-cycle-word">Respond</span></span>
           </h1>
 
           <p class="hero-subtitle" data-animate data-delay="200">
@@ -80,97 +80,23 @@
           </p>
 
           <div class="hero-ctas" data-animate data-delay="300">
-            <a href="contact.html" class="btn btn-primary">Book a Demo</a>
-            <a href="services.html" class="btn btn-secondary">View Services</a>
+            <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+            <a href="/services/" class="btn btn-secondary">View Services</a>
           </div>
         </div>
 
-        <!-- Product Mockup -->
-        <div class="hero-visual" aria-hidden="true">
+        <!-- Product Demo Video -->
+        <div class="hero-visual">
           <div class="mockup-wrap">
-
-            <!-- Lead notification -->
-            <div class="mockup-lead">
-              <div class="lead-pulse"></div>
-              <div>
-                <div class="lead-text">New inquiry captured</div>
-                <div class="lead-sub">via website chatbot</div>
-              </div>
-            </div>
-
-            <!-- Browser window -->
-            <div class="mockup-browser">
-              <div class="browser-bar">
-                <span class="bdot bdot-r"></span>
-                <span class="bdot bdot-y"></span>
-                <span class="bdot bdot-g"></span>
-                <div class="burl">getsynq.ca</div>
-              </div>
-              <div class="bcontent">
-                <div class="mbar"></div>
-                <div class="mbar"></div>
-                <div class="mbar"></div>
-                <div class="mcards">
-                  <div class="mcard">
-                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
-                    <div class="mcard-line"></div>
-                    <div class="mcard-line s"></div>
-                  </div>
-                  <div class="mcard">
-                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
-                    <div class="mcard-line"></div>
-                    <div class="mcard-line s"></div>
-                  </div>
-                  <div class="mcard">
-                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
-                    <div class="mcard-line"></div>
-                    <div class="mcard-line s"></div>
-                  </div>
-                  <div class="mcard">
-                    <div class="mcard-ico"><div class="mcard-ico-dot"></div></div>
-                    <div class="mcard-line"></div>
-                    <div class="mcard-line s"></div>
-                  </div>
-                </div>
-                <div class="mbottom">
-                  <div class="mbtn">Get Started</div>
-                  <div class="mbtn-outline">Learn More</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SMS card -->
-            <div class="mockup-sms">
-              <div class="sms-tag">Missed Call SMS</div>
-              <div class="sms-msg">Sorry we missed your call. How can we help?</div>
-              <div class="sms-meta">Just now · Auto-sent</div>
-            </div>
-
-            <!-- Voice card -->
-            <div class="mockup-voice">
-              <div class="voice-tag">AI Voice</div>
-              <div class="voice-status-text">After-hours call handled</div>
-              <span class="voice-badge">Active</span>
-            </div>
-
-            <!-- Chatbot widget -->
-            <div class="mockup-chatbot">
-              <div class="chat-hdr">
-                <div class="chat-avatar">
-                  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                </div>
-                <div>
-                  <div class="chat-name">SynqAI Chat</div>
-                  <div class="chat-status">● Online now</div>
-                </div>
-              </div>
-              <div class="chat-bubble">Hi, how can I help you today?</div>
-              <div class="chat-inp">
-                <span class="chat-inp-placeholder">Type a message...</span>
-                <div class="chat-send">
-                  <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </div>
-              </div>
+            <div class="hero-video-wrap">
+              <video
+                src="public/chatbot-demo.mov"
+                autoplay
+                muted
+                loop
+                playsinline
+                class="hero-video"
+              ></video>
             </div>
 
           </div>
@@ -341,7 +267,7 @@
               SynqAI combines custom web design with AI-powered communication tools so your business can respond faster across your website, calls, and texts. Use one service or connect the full system.
             </p>
             <div class="split-left-cta" data-animate data-delay="200">
-              <a href="services.html" class="btn btn-secondary btn-sm">View All Services</a>
+              <a href="/services/" class="btn btn-secondary btn-sm">View All Services</a>
             </div>
           </div>
 
@@ -487,35 +413,86 @@
           </p>
         </div>
 
-        <div class="industry-carousel" aria-label="Industries served">
-          <div class="carousel-track">
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Medical Clinics</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Dental Clinics</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Contractors</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Consultants</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Local Service Businesses</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Professional Service Firms</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Repair &amp; Maintenance</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Wellness &amp; Appointment-Based</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Law Firms</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Financial Advisors</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Real Estate Professionals</div>
-            <div class="industry-pill"><span class="pill-dot" aria-hidden="true"></span>Trades &amp; Home Services</div>
-            <!-- Duplicate for seamless loop -->
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Medical Clinics</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Dental Clinics</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Contractors</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Consultants</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Local Service Businesses</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Professional Service Firms</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Repair &amp; Maintenance</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Wellness &amp; Appointment-Based</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Law Firms</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Financial Advisors</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Real Estate Professionals</div>
-            <div class="industry-pill" aria-hidden="true"><span class="pill-dot"></span>Trades &amp; Home Services</div>
+        <div class="ind-carousel" data-animate data-delay="150">
+          <button class="ind-nav-btn ind-prev" aria-label="Previous industry">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="ind-viewport">
+            <div class="ind-track" id="indTrack">
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Medical Clinics</h3>
+                <ul class="ind-card-list">
+                  <li>Capture new patient inquiries 24/7 — even after hours</li>
+                  <li>Instant SMS sent the moment a call goes unanswered</li>
+                  <li>AI chatbot answers FAQs, hours, and location instantly</li>
+                </ul>
+              </div>
+
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Contractors</h3>
+                <ul class="ind-card-list">
+                  <li>Capture quote requests while you're out on the job</li>
+                  <li>Auto-SMS every missed call so no lead goes cold</li>
+                  <li>Chatbot pre-qualifies job type, location, and timeline</li>
+                </ul>
+              </div>
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Law Firms</h3>
+                <ul class="ind-card-list">
+                  <li>Capture potential clients before they call a competitor</li>
+                  <li>Smart intake chatbot qualifies leads around the clock</li>
+                  <li>Never miss an urgent inquiry with instant SMS alerts</li>
+                </ul>
+              </div>
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Real Estate</h3>
+                <ul class="ind-card-list">
+                  <li>Answer property and listing questions at 2am — automatically</li>
+                  <li>Capture buyer and seller leads from every page visit</li>
+                  <li>Missed call? An SMS reply goes out before they hang up</li>
+                </ul>
+              </div>
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Wellness &amp; Spas</h3>
+                <ul class="ind-card-list">
+                  <li>Let clients book and inquire through your site 24/7</li>
+                  <li>Automated reminders and follow-ups reduce no-shows</li>
+                  <li>Chatbot handles pricing, services, and availability instantly</li>
+                </ul>
+              </div>
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Financial Advisors</h3>
+                <ul class="ind-card-list">
+                  <li>Qualify prospects automatically before they reach your calendar</li>
+                  <li>Capture leads from your website at any hour</li>
+                  <li>Instant SMS follow-up keeps your pipeline from going cold</li>
+                </ul>
+              </div>
+
+              <div class="ind-card" style="--card-bg: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80')">
+                <h3 class="ind-card-title">Trades &amp; Home Services</h3>
+                <ul class="ind-card-list">
+                  <li>Never lose a job because you were on another call</li>
+                  <li>Auto-SMS every missed call — sent in under a minute</li>
+                  <li>Capture online quote requests while you're on the job</li>
+                </ul>
+              </div>
+
+            </div>
           </div>
+          <button class="ind-nav-btn ind-next" aria-label="Next industry">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
+
+        <!-- Dot indicators -->
+        <div class="ind-dots" id="indDots" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -548,7 +525,7 @@
         </div>
 
         <div class="blog-cta-row" data-animate data-delay="200">
-          <a href="blog.html" class="btn btn-secondary">Visit Blog</a>
+          <a href="/blog/" class="btn btn-secondary">Visit Blog</a>
         </div>
       </div>
     </section>
@@ -566,8 +543,8 @@
             Launch a custom website with AI-powered tools that answer, capture, and follow up across your website, calls, and texts.
           </p>
           <div class="cta-btns">
-            <a href="contact.html" class="btn btn-primary">Book a Demo</a>
-            <a href="contact.html" class="btn btn-secondary">Contact SynqAI</a>
+            <a href="/contact/" class="btn btn-primary">Book a Demo</a>
+            <a href="/contact/" class="btn btn-secondary">Contact SynqAI</a>
           </div>
         </div>
       </div>
@@ -583,7 +560,7 @@
       <div class="footer-inner">
         <!-- Brand -->
         <div>
-          <a href="index.html" class="logo" aria-label="SynqAI Home">
+          <a href="/" class="logo" aria-label="SynqAI Home">
             <img src="public/logo.png" alt="SynqAI" class="logo-img" /><span class="logo-wordmark"><span class="synq">Synq</span><span class="ai">AI</span></span>
           </a>
           <p class="footer-brand-desc">
@@ -609,11 +586,11 @@
         <div>
           <h3 class="footer-col-title">Quick Links</h3>
           <ul class="footer-links" role="list">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about.html" class="footer-link">About</a></li>
-            <li><a href="services.html" class="footer-link">Services</a></li>
-            <li><a href="blog.html" class="footer-link">Blog</a></li>
-            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="/" class="footer-link">Home</a></li>
+            <li><a href="/about/" class="footer-link">About</a></li>
+            <li><a href="/services/" class="footer-link">Services</a></li>
+            <li><a href="/blog/" class="footer-link">Blog</a></li>
+            <li><a href="/contact/" class="footer-link">Contact</a></li>
           </ul>
         </div>
 
