@@ -510,7 +510,8 @@ input, textarea, select { font-family: inherit; }
    Hero
    ============================================================ */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -536,15 +537,21 @@ input, textarea, select { font-family: inherit; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center;
-  padding: 44px 24px 28px;
+  align-items: stretch;
+  padding: 32px 24px 20px;
   max-width: var(--container-max);
   margin: 0 auto;
   width: 100%;
   flex: 1;
+  min-height: 0;
 }
 
-.hero-content { z-index: 1; }
+.hero-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .hero-eyebrow { margin-bottom: 16px; }
 
@@ -578,29 +585,36 @@ input, textarea, select { font-family: inherit; }
 .hero-visual {
   position: relative;
   z-index: 1;
-  height: 420px;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
 }
 
 .mockup-wrap {
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-video-wrap {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-video {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
+  object-fit: contain;
+  object-position: center top;
   display: block;
   border-radius: 16px;
   box-shadow: 0 24px 64px rgba(0,0,0,0.5);
@@ -2416,7 +2430,7 @@ input, textarea, select { font-family: inherit; }
     padding: 40px 24px 24px;
   }
 
-  .hero-visual { height: 340px; }
+  .hero-visual { min-height: 0; }
 
   .hero-subtitle { max-width: 100%; }
   .hero-ctas { justify-content: flex-start; }
