@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <!-- Icon mark -->
+  <rect x="0" y="7"  width="42" height="9" rx="3" fill="rgba(255,255,255,0.32)"/>
+  <rect x="0" y="22" width="42" height="9" rx="3" fill="#14B8A6"/>
+  <rect x="0" y="37" width="42" height="9" rx="3" fill="#F8FAFC"/>
+
+  <!-- Wordmark -->
+  <text x="56" y="48"
+    font-family="'Plus Jakarta Sans', 'Inter', sans-serif"
+    font-size="44"
+    font-weight="800"
+    letter-spacing="-2"
+    fill="#F8FAFC">Synq</text>
+  <text x="178" y="48"
+    font-family="'Plus Jakarta Sans', 'Inter', sans-serif"
+    font-size="44"
+    font-weight="800"
+    letter-spacing="-2"
+    fill="#14B8A6">AI</text>
+</svg>

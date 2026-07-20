@@ -99,28 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animTargets.forEach(el => el.classList.add('animated'));
   }
 
-  /* ----------------------------------------------------------
-     Contact form: placeholder submit
-  ---------------------------------------------------------- */
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('.form-submit');
-      const originalText = btn.textContent;
-
-      btn.textContent = 'Message sent!';
-      btn.style.background = 'var(--brand-primary-dark)';
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3500);
-    });
-  }
 
   /* ----------------------------------------------------------
      Industry card carousel
